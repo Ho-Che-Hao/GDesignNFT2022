@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using GDesign2022NFT.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using WalkingTec.Mvvm.Core;
@@ -10,6 +11,12 @@ namespace GDesign2022NFT.DataAccess
     {
         public DbSet<FrameworkUser> FrameworkUsers { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 
         public DataContext(CS cs)
              : base(cs)
