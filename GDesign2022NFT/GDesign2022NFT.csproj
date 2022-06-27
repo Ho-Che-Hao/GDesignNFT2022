@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  
+    <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+</PropertyGroup>
+
+
+
+
+  <ItemGroup>
+    <PackageReference Include="WalkingTec.Mvvm.TagHelpers.LayUI" Version="6.2.5" />
+    <PackageReference Include="WalkingTec.Mvvm.Mvc" Version="6.2.5" />
+</ItemGroup>
+
+  <ItemGroup>
+   <ProjectReference Include="..\GDesign2022NFT.Model\GDesign2022NFT.Model.csproj" />
+    <ProjectReference Include="..\GDesign2022NFT.DataAccess\GDesign2022NFT.DataAccess.csproj" />
+    <ProjectReference Include="..\GDesign2022NFT.ViewModel\GDesign2022NFT.ViewModel.csproj" />
+ </ItemGroup >
+</Project>
+
+
