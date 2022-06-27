@@ -13,10 +13,7 @@ namespace GDesign2022NFT.DataAccess
 
         public DbSet<User> Users { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
+       
 
         public DataContext(CS cs)
              : base(cs)

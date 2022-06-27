@@ -1,0 +1,20 @@
+﻿@model GDesign2022NFT.ViewModel.UserVMs.UserVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.Name" />
+<wt:textbox field="Entity.Email" />
+<wt:textbox field="Entity.Phone" />
+<wt:combobox field="Entity.IsForeigner" />
+<wt:textbox field="Entity.SchoolName" />
+<wt:textbox field="Entity.SchoolDepartment" />
+<wt:textbox field="Entity.SchoolGrade" />
+<wt:combobox field="Entity.AvtivityStatus" />
+<wt:textbox field="Entity.Md5Code" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
