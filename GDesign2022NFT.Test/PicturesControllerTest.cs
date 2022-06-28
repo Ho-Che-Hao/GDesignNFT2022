@@ -43,10 +43,10 @@ namespace GDesign2022NFT.Test
             PicturesVM vm = rv.Model as PicturesVM;
             Pictures v = new Pictures();
 			
-            v.ID = 6;
-            v.Name = "dp15Erl1h";
-            v.Status = GDesign2022NFT.Model.PicturesStatusEnum.Delete;
-            v.Md5Code = "n2G1BDJ4JGQ2X5N2w2";
+            v.ID = 47;
+            v.Name = "ldthqcpAMURO5";
+            v.Md5Code = "BVtEq";
+            v.PhotoId = AddFileAttachment();
             vm.Entity = v;
             _controller.Create(vm);
 
@@ -54,10 +54,9 @@ namespace GDesign2022NFT.Test
             {
                 var data = context.Set<Pictures>().Find(v.ID);
 				
-                Assert.AreEqual(data.ID, 6);
-                Assert.AreEqual(data.Name, "dp15Erl1h");
-                Assert.AreEqual(data.Status, GDesign2022NFT.Model.PicturesStatusEnum.Delete);
-                Assert.AreEqual(data.Md5Code, "n2G1BDJ4JGQ2X5N2w2");
+                Assert.AreEqual(data.ID, 47);
+                Assert.AreEqual(data.Name, "ldthqcpAMURO5");
+                Assert.AreEqual(data.Md5Code, "BVtEq");
                 Assert.AreEqual(data.CreateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.CreateTime.Value).Seconds < 10);
             }
@@ -71,10 +70,10 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
        			
-                v.ID = 6;
-                v.Name = "dp15Erl1h";
-                v.Status = GDesign2022NFT.Model.PicturesStatusEnum.Delete;
-                v.Md5Code = "n2G1BDJ4JGQ2X5N2w2";
+                v.ID = 47;
+                v.Name = "ldthqcpAMURO5";
+                v.Md5Code = "BVtEq";
+                v.PhotoId = AddFileAttachment();
                 context.Set<Pictures>().Add(v);
                 context.SaveChanges();
             }
@@ -87,25 +86,23 @@ namespace GDesign2022NFT.Test
             v = new Pictures();
             v.ID = vm.Entity.ID;
        		
-            v.Name = "BnWBWELAaXYaQVWLi";
-            v.Status = GDesign2022NFT.Model.PicturesStatusEnum.Avaliable;
-            v.Md5Code = "ZWuB";
+            v.Name = "8R1dP19Ltq4C";
+            v.Md5Code = "GhCl";
             vm.Entity = v;
             vm.FC = new Dictionary<string, object>();
 			
             vm.FC.Add("Entity.ID", "");
             vm.FC.Add("Entity.Name", "");
-            vm.FC.Add("Entity.Status", "");
             vm.FC.Add("Entity.Md5Code", "");
+            vm.FC.Add("Entity.PhotoId", "");
             _controller.Edit(vm);
 
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
                 var data = context.Set<Pictures>().Find(v.ID);
  				
-                Assert.AreEqual(data.Name, "BnWBWELAaXYaQVWLi");
-                Assert.AreEqual(data.Status, GDesign2022NFT.Model.PicturesStatusEnum.Avaliable);
-                Assert.AreEqual(data.Md5Code, "ZWuB");
+                Assert.AreEqual(data.Name, "8R1dP19Ltq4C");
+                Assert.AreEqual(data.Md5Code, "GhCl");
                 Assert.AreEqual(data.UpdateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.UpdateTime.Value).Seconds < 10);
             }
@@ -120,10 +117,10 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
         		
-                v.ID = 6;
-                v.Name = "dp15Erl1h";
-                v.Status = GDesign2022NFT.Model.PicturesStatusEnum.Delete;
-                v.Md5Code = "n2G1BDJ4JGQ2X5N2w2";
+                v.ID = 47;
+                v.Name = "ldthqcpAMURO5";
+                v.Md5Code = "BVtEq";
+                v.PhotoId = AddFileAttachment();
                 context.Set<Pictures>().Add(v);
                 context.SaveChanges();
             }
@@ -140,7 +137,7 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
                 var data = context.Set<Pictures>().Find(v.ID);
-                Assert.AreEqual(data, null);
+                Assert.AreEqual(data.IsValid, false);
           }
 
         }
@@ -153,10 +150,10 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v.ID = 6;
-                v.Name = "dp15Erl1h";
-                v.Status = GDesign2022NFT.Model.PicturesStatusEnum.Delete;
-                v.Md5Code = "n2G1BDJ4JGQ2X5N2w2";
+                v.ID = 47;
+                v.Name = "ldthqcpAMURO5";
+                v.Md5Code = "BVtEq";
+                v.PhotoId = AddFileAttachment();
                 context.Set<Pictures>().Add(v);
                 context.SaveChanges();
             }
@@ -173,14 +170,14 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.ID = 6;
-                v1.Name = "dp15Erl1h";
-                v1.Status = GDesign2022NFT.Model.PicturesStatusEnum.Delete;
-                v1.Md5Code = "n2G1BDJ4JGQ2X5N2w2";
-                v2.ID = 93;
-                v2.Name = "BnWBWELAaXYaQVWLi";
-                v2.Status = GDesign2022NFT.Model.PicturesStatusEnum.Avaliable;
-                v2.Md5Code = "ZWuB";
+                v1.ID = 47;
+                v1.Name = "ldthqcpAMURO5";
+                v1.Md5Code = "BVtEq";
+                v1.PhotoId = AddFileAttachment();
+                v2.ID = 79;
+                v2.Name = "8R1dP19Ltq4C";
+                v2.Md5Code = "GhCl";
+                v2.PhotoId = v1.PhotoId; 
                 context.Set<Pictures>().Add(v1);
                 context.Set<Pictures>().Add(v2);
                 context.SaveChanges();
@@ -217,14 +214,14 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.ID = 6;
-                v1.Name = "dp15Erl1h";
-                v1.Status = GDesign2022NFT.Model.PicturesStatusEnum.Delete;
-                v1.Md5Code = "n2G1BDJ4JGQ2X5N2w2";
-                v2.ID = 93;
-                v2.Name = "BnWBWELAaXYaQVWLi";
-                v2.Status = GDesign2022NFT.Model.PicturesStatusEnum.Avaliable;
-                v2.Md5Code = "ZWuB";
+                v1.ID = 47;
+                v1.Name = "ldthqcpAMURO5";
+                v1.Md5Code = "BVtEq";
+                v1.PhotoId = AddFileAttachment();
+                v2.ID = 79;
+                v2.Name = "8R1dP19Ltq4C";
+                v2.Md5Code = "GhCl";
+                v2.PhotoId = v1.PhotoId; 
                 context.Set<Pictures>().Add(v1);
                 context.Set<Pictures>().Add(v2);
                 context.SaveChanges();
@@ -241,8 +238,8 @@ namespace GDesign2022NFT.Test
             {
                 var data1 = context.Set<Pictures>().Find(v1.ID);
                 var data2 = context.Set<Pictures>().Find(v2.ID);
-                Assert.AreEqual(data1, null);
-            Assert.AreEqual(data2, null);
+                Assert.AreEqual(data1.IsValid, false);
+            Assert.AreEqual(data2.IsValid, false);
             }
         }
 
@@ -253,6 +250,29 @@ namespace GDesign2022NFT.Test
             Assert.IsInstanceOfType(rv.Model, typeof(IBasePagedListVM<TopBasePoco, BaseSearcher>));
             IActionResult rv2 = _controller.ExportExcel(rv.Model as PicturesListVM);
             Assert.IsTrue((rv2 as FileContentResult).FileContents.Length > 0);
+        }
+
+        private Guid AddFileAttachment()
+        {
+            FileAttachment v = new FileAttachment();
+            using (var context = new DataContext(_seed, DBTypeEnum.Memory))
+            {
+                try{
+
+                v.FileName = "LGrymy5Tz";
+                v.FileExt = "KpOC7DKB";
+                v.Path = "R5sUClyVwm5QD1SxX";
+                v.Length = 10;
+                v.UploadTime = DateTime.Parse("2021-02-22 14:13:10");
+                v.SaveMode = "kR8C";
+                v.ExtraInfo = "TsH8jC5BMo";
+                v.HandlerInfo = "FncDQ64l";
+                context.Set<FileAttachment>().Add(v);
+                context.SaveChanges();
+                }
+                catch{}
+            }
+            return v.ID;
         }
 
 

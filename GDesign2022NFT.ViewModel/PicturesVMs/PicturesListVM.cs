@@ -33,21 +33,31 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
         {
             return new List<GridColumn<Pictures_View>>{
                 this.MakeGridHeader(x => x.Name),
-                this.MakeGridHeader(x => x.Status),
                 this.MakeGridHeader(x => x.Md5Code),
+                this.MakeGridHeader(x => x.PhotoId).SetFormat(PhotoIdFormat),
                 this.MakeGridHeaderAction(width: 200)
             };
         }
+        private List<ColumnFormatInfo> PhotoIdFormat(Pictures_View entity, object val)
+        {
+            return new List<ColumnFormatInfo>
+            {
+                ColumnFormatInfo.MakeDownloadButton(ButtonTypesEnum.Button,entity.PhotoId),
+                ColumnFormatInfo.MakeViewButton(ButtonTypesEnum.Button,entity.PhotoId,640,480),
+            };
+        }
+
 
         public override IOrderedQueryable<Pictures_View> GetSearchQuery()
         {
             var query = DC.Set<Pictures>()
+                .CheckContain(Searcher.Name, x=>x.Name)
                 .Select(x => new Pictures_View
                 {
 				    ID = x.ID,
                     Name = x.Name,
-                    Status = x.Status,
                     Md5Code = x.Md5Code,
+                    PhotoId = x.PhotoId,
                 })
                 .OrderBy(x => x.ID);
             return query;

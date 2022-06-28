@@ -12,6 +12,8 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
 {
     public partial class PicturesSearcher : BaseSearcher
     {
+        [Display(Name = "圖片名稱")]
+        public String Name { get; set; }
 
         protected override void InitVM()
         {

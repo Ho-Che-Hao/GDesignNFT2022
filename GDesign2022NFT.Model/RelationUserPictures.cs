@@ -12,7 +12,7 @@ using WalkingTec.Mvvm.Core.Attributes;
 namespace GDesign2022NFT.Model
 {
     //[Index(nameof(PicturesId))]
-    //[MiddleTable]
+    [MiddleTable]
     public class RelationUserPictures: TopBasePoco
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

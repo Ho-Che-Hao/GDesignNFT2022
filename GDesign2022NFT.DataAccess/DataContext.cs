@@ -21,6 +21,7 @@ namespace GDesign2022NFT.DataAccess
         {
             /*modelBuilder.Entity<RelationUserPictures>()
                 .HasIndex(b => b.PicturesId);*/
+            //var b = modelBuilder.Entity<Pictures>();
         }
 
         public DataContext(CS cs)

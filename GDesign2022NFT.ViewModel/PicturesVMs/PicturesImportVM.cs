@@ -14,7 +14,6 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
     {
         [Display(Name = "圖片名稱")]
         public ExcelPropety Name_Excel = ExcelPropety.CreateProperty<Pictures>(x => x.Name);
-        public ExcelPropety Status_Excel = ExcelPropety.CreateProperty<Pictures>(x => x.Status);
         public ExcelPropety Md5Code_Excel = ExcelPropety.CreateProperty<Pictures>(x => x.Md5Code);
 
 	    protected override void InitVM()

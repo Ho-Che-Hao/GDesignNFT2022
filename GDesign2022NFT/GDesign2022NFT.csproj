@@ -20,7 +20,7 @@
    <ProjectReference Include="..\GDesign2022NFT.Model\GDesign2022NFT.Model.csproj" />
     <ProjectReference Include="..\GDesign2022NFT.DataAccess\GDesign2022NFT.DataAccess.csproj" />
     <ProjectReference Include="..\GDesign2022NFT.ViewModel\GDesign2022NFT.ViewModel.csproj" />
- </ItemGroup >
+ </ItemGroup>
 </Project>
 
 

@@ -20,6 +20,10 @@ namespace GDesign2022NFT.Model
         [Required(ErrorMessage = "名字必填")]
         public string Name { set; get; }
 
+        [Display(Name = "身分證字號/居留證號碼")]
+        [Required(ErrorMessage = "身分證字號/居留證號碼必填")]
+        public string IdentyCode { set; get; }
+
         [Display(Name = "信箱")]
         [Required(ErrorMessage = "信箱必填")]
         public string Email { set; get; }
@@ -50,13 +54,13 @@ namespace GDesign2022NFT.Model
     }
 
     public enum ForeignerTypeEnum{
-        Native,
-        Foreigner,        
+        Native = 0,
+        Foreigner = 1,        
     }
 
     public enum AvtivityStatus
     {
-        NotAvtivity,
-        Avtivity
+        NotAvtivity = 0,
+        Avtivity = 1
     }
 }
