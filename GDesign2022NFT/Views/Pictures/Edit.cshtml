@@ -1,0 +1,15 @@
+﻿@model GDesign2022NFT.ViewModel.PicturesVMs.PicturesVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.Name" />
+<wt:combobox field="Entity.Status" />
+<wt:textbox field="Entity.Md5Code" />
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

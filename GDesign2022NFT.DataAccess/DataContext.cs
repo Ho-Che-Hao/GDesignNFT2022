@@ -13,7 +13,15 @@ namespace GDesign2022NFT.DataAccess
 
         public DbSet<User> Users { get; set; }
 
-       
+        public DbSet<Pictures> Pictures { get; set; }
+
+        public DbSet<RelationUserPictures> RelationUserPictures { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            /*modelBuilder.Entity<RelationUserPictures>()
+                .HasIndex(b => b.PicturesId);*/
+        }
 
         public DataContext(CS cs)
              : base(cs)

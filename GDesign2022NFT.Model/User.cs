@@ -16,6 +16,7 @@ namespace GDesign2022NFT.Model
         public new int ID { get; set; }
 
         [Display(Name = "名字")]
+        [StringLength(50, ErrorMessage = "名字長度不可超過50字元")]
         [Required(ErrorMessage = "名字必填")]
         public string Name { set; get; }
 
@@ -30,13 +31,16 @@ namespace GDesign2022NFT.Model
         public ForeignerTypeEnum IsForeigner { set; get; }
 
         [Display(Name = "學校名稱")]
+        [StringLength(50,ErrorMessage = "學校名稱長度不可超過50字元")]
         [Required(ErrorMessage = "學校名稱必填")]
         public string SchoolName { set; get; }
         [Display(Name = "系所名稱")]
         [Required(ErrorMessage = "系所名稱必填")]
+        [StringLength(50, ErrorMessage = "系所名稱長度不可超過50字元")]
         public string SchoolDepartment { set; get; }
         [Display(Name = "就讀年級")]
         [Required(ErrorMessage = "就讀年級必填")]
+        [StringLength(10, ErrorMessage = "就讀年級長度不可超過10字元")]
         public string SchoolGrade { set; get; }
 
         public AvtivityStatus AvtivityStatus { set; get; }

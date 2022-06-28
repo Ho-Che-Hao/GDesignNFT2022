@@ -9,7 +9,7 @@ using GDesign2022NFT.ViewModel.UserVMs;
 namespace GDesign2022NFT.Controllers
 {
     
-    [ActionDescription("使用者編輯")]
+    [ActionDescription("使用者資料編輯")]
     public partial class UserController : BaseController
     {
         #region Search

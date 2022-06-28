@@ -43,16 +43,16 @@ namespace GDesign2022NFT.Test
             UserVM vm = rv.Model as UserVM;
             User v = new User();
 			
-            v.ID = 58;
-            v.Name = "SoAQG0PFauC9";
-            v.Email = "Ar8oqzbit";
-            v.Phone = "6cyM7";
+            v.ID = 46;
+            v.Name = "QZh";
+            v.Email = "iGsz1n6QXSlFTPb";
+            v.Phone = "cvm3CWBXPNUicUjnWC";
             v.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-            v.SchoolName = "JKZTY";
-            v.SchoolDepartment = "FDJBNjcgGOCXehYM5";
-            v.SchoolGrade = "WFzI4A";
-            v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
-            v.Md5Code = "e60xrGVPfoZ5Ndpm16n";
+            v.SchoolName = "dmpQrClRAeZMRKy8CNVjaRlxFn4dCR7i8q2T6";
+            v.SchoolDepartment = "2GPJvWq";
+            v.SchoolGrade = "pSFnvCZKR";
+            v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
+            v.Md5Code = "4th4X3W1VoaJ";
             vm.Entity = v;
             _controller.Create(vm);
 
@@ -60,16 +60,16 @@ namespace GDesign2022NFT.Test
             {
                 var data = context.Set<User>().Find(v.ID);
 				
-                Assert.AreEqual(data.ID, 58);
-                Assert.AreEqual(data.Name, "SoAQG0PFauC9");
-                Assert.AreEqual(data.Email, "Ar8oqzbit");
-                Assert.AreEqual(data.Phone, "6cyM7");
+                Assert.AreEqual(data.ID, 46);
+                Assert.AreEqual(data.Name, "QZh");
+                Assert.AreEqual(data.Email, "iGsz1n6QXSlFTPb");
+                Assert.AreEqual(data.Phone, "cvm3CWBXPNUicUjnWC");
                 Assert.AreEqual(data.IsForeigner, GDesign2022NFT.Model.ForeignerTypeEnum.Native);
-                Assert.AreEqual(data.SchoolName, "JKZTY");
-                Assert.AreEqual(data.SchoolDepartment, "FDJBNjcgGOCXehYM5");
-                Assert.AreEqual(data.SchoolGrade, "WFzI4A");
-                Assert.AreEqual(data.AvtivityStatus, GDesign2022NFT.Model.AvtivityStatus.NotAvtivity);
-                Assert.AreEqual(data.Md5Code, "e60xrGVPfoZ5Ndpm16n");
+                Assert.AreEqual(data.SchoolName, "dmpQrClRAeZMRKy8CNVjaRlxFn4dCR7i8q2T6");
+                Assert.AreEqual(data.SchoolDepartment, "2GPJvWq");
+                Assert.AreEqual(data.SchoolGrade, "pSFnvCZKR");
+                Assert.AreEqual(data.AvtivityStatus, GDesign2022NFT.Model.AvtivityStatus.Avtivity);
+                Assert.AreEqual(data.Md5Code, "4th4X3W1VoaJ");
                 Assert.AreEqual(data.CreateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.CreateTime.Value).Seconds < 10);
             }
@@ -83,16 +83,16 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
        			
-                v.ID = 58;
-                v.Name = "SoAQG0PFauC9";
-                v.Email = "Ar8oqzbit";
-                v.Phone = "6cyM7";
+                v.ID = 46;
+                v.Name = "QZh";
+                v.Email = "iGsz1n6QXSlFTPb";
+                v.Phone = "cvm3CWBXPNUicUjnWC";
                 v.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-                v.SchoolName = "JKZTY";
-                v.SchoolDepartment = "FDJBNjcgGOCXehYM5";
-                v.SchoolGrade = "WFzI4A";
-                v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
-                v.Md5Code = "e60xrGVPfoZ5Ndpm16n";
+                v.SchoolName = "dmpQrClRAeZMRKy8CNVjaRlxFn4dCR7i8q2T6";
+                v.SchoolDepartment = "2GPJvWq";
+                v.SchoolGrade = "pSFnvCZKR";
+                v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
+                v.Md5Code = "4th4X3W1VoaJ";
                 context.Set<User>().Add(v);
                 context.SaveChanges();
             }
@@ -105,15 +105,15 @@ namespace GDesign2022NFT.Test
             v = new User();
             v.ID = vm.Entity.ID;
        		
-            v.Name = "vj5B3XFr7ls6LIJ";
-            v.Email = "wUTDt6XHONrZxfm";
-            v.Phone = "TDFvB8pA95VJM1pdeSv";
-            v.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-            v.SchoolName = "B4QQIpDr";
-            v.SchoolDepartment = "9wP1igNxouauo2b";
-            v.SchoolGrade = "dLeI0nspTpAKsR8kV4";
-            v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
-            v.Md5Code = "Z6BB2j";
+            v.Name = "qXBDILJhsxk0";
+            v.Email = "ngkK";
+            v.Phone = "iFrgo2Jprdrz8SSX5M";
+            v.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Foreigner;
+            v.SchoolName = "5E4szETbgv0CjA4";
+            v.SchoolDepartment = "X53";
+            v.SchoolGrade = "m0ehx";
+            v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
+            v.Md5Code = "vvgIgji19wQ";
             vm.Entity = v;
             vm.FC = new Dictionary<string, object>();
 			
@@ -133,15 +133,15 @@ namespace GDesign2022NFT.Test
             {
                 var data = context.Set<User>().Find(v.ID);
  				
-                Assert.AreEqual(data.Name, "vj5B3XFr7ls6LIJ");
-                Assert.AreEqual(data.Email, "wUTDt6XHONrZxfm");
-                Assert.AreEqual(data.Phone, "TDFvB8pA95VJM1pdeSv");
-                Assert.AreEqual(data.IsForeigner, GDesign2022NFT.Model.ForeignerTypeEnum.Native);
-                Assert.AreEqual(data.SchoolName, "B4QQIpDr");
-                Assert.AreEqual(data.SchoolDepartment, "9wP1igNxouauo2b");
-                Assert.AreEqual(data.SchoolGrade, "dLeI0nspTpAKsR8kV4");
-                Assert.AreEqual(data.AvtivityStatus, GDesign2022NFT.Model.AvtivityStatus.Avtivity);
-                Assert.AreEqual(data.Md5Code, "Z6BB2j");
+                Assert.AreEqual(data.Name, "qXBDILJhsxk0");
+                Assert.AreEqual(data.Email, "ngkK");
+                Assert.AreEqual(data.Phone, "iFrgo2Jprdrz8SSX5M");
+                Assert.AreEqual(data.IsForeigner, GDesign2022NFT.Model.ForeignerTypeEnum.Foreigner);
+                Assert.AreEqual(data.SchoolName, "5E4szETbgv0CjA4");
+                Assert.AreEqual(data.SchoolDepartment, "X53");
+                Assert.AreEqual(data.SchoolGrade, "m0ehx");
+                Assert.AreEqual(data.AvtivityStatus, GDesign2022NFT.Model.AvtivityStatus.NotAvtivity);
+                Assert.AreEqual(data.Md5Code, "vvgIgji19wQ");
                 Assert.AreEqual(data.UpdateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.UpdateTime.Value).Seconds < 10);
             }
@@ -156,16 +156,16 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
         		
-                v.ID = 58;
-                v.Name = "SoAQG0PFauC9";
-                v.Email = "Ar8oqzbit";
-                v.Phone = "6cyM7";
+                v.ID = 46;
+                v.Name = "QZh";
+                v.Email = "iGsz1n6QXSlFTPb";
+                v.Phone = "cvm3CWBXPNUicUjnWC";
                 v.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-                v.SchoolName = "JKZTY";
-                v.SchoolDepartment = "FDJBNjcgGOCXehYM5";
-                v.SchoolGrade = "WFzI4A";
-                v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
-                v.Md5Code = "e60xrGVPfoZ5Ndpm16n";
+                v.SchoolName = "dmpQrClRAeZMRKy8CNVjaRlxFn4dCR7i8q2T6";
+                v.SchoolDepartment = "2GPJvWq";
+                v.SchoolGrade = "pSFnvCZKR";
+                v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
+                v.Md5Code = "4th4X3W1VoaJ";
                 context.Set<User>().Add(v);
                 context.SaveChanges();
             }
@@ -195,16 +195,16 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v.ID = 58;
-                v.Name = "SoAQG0PFauC9";
-                v.Email = "Ar8oqzbit";
-                v.Phone = "6cyM7";
+                v.ID = 46;
+                v.Name = "QZh";
+                v.Email = "iGsz1n6QXSlFTPb";
+                v.Phone = "cvm3CWBXPNUicUjnWC";
                 v.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-                v.SchoolName = "JKZTY";
-                v.SchoolDepartment = "FDJBNjcgGOCXehYM5";
-                v.SchoolGrade = "WFzI4A";
-                v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
-                v.Md5Code = "e60xrGVPfoZ5Ndpm16n";
+                v.SchoolName = "dmpQrClRAeZMRKy8CNVjaRlxFn4dCR7i8q2T6";
+                v.SchoolDepartment = "2GPJvWq";
+                v.SchoolGrade = "pSFnvCZKR";
+                v.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
+                v.Md5Code = "4th4X3W1VoaJ";
                 context.Set<User>().Add(v);
                 context.SaveChanges();
             }
@@ -221,26 +221,26 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.ID = 58;
-                v1.Name = "SoAQG0PFauC9";
-                v1.Email = "Ar8oqzbit";
-                v1.Phone = "6cyM7";
+                v1.ID = 46;
+                v1.Name = "QZh";
+                v1.Email = "iGsz1n6QXSlFTPb";
+                v1.Phone = "cvm3CWBXPNUicUjnWC";
                 v1.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-                v1.SchoolName = "JKZTY";
-                v1.SchoolDepartment = "FDJBNjcgGOCXehYM5";
-                v1.SchoolGrade = "WFzI4A";
-                v1.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
-                v1.Md5Code = "e60xrGVPfoZ5Ndpm16n";
-                v2.ID = 41;
-                v2.Name = "vj5B3XFr7ls6LIJ";
-                v2.Email = "wUTDt6XHONrZxfm";
-                v2.Phone = "TDFvB8pA95VJM1pdeSv";
-                v2.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-                v2.SchoolName = "B4QQIpDr";
-                v2.SchoolDepartment = "9wP1igNxouauo2b";
-                v2.SchoolGrade = "dLeI0nspTpAKsR8kV4";
-                v2.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
-                v2.Md5Code = "Z6BB2j";
+                v1.SchoolName = "dmpQrClRAeZMRKy8CNVjaRlxFn4dCR7i8q2T6";
+                v1.SchoolDepartment = "2GPJvWq";
+                v1.SchoolGrade = "pSFnvCZKR";
+                v1.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
+                v1.Md5Code = "4th4X3W1VoaJ";
+                v2.ID = 61;
+                v2.Name = "qXBDILJhsxk0";
+                v2.Email = "ngkK";
+                v2.Phone = "iFrgo2Jprdrz8SSX5M";
+                v2.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Foreigner;
+                v2.SchoolName = "5E4szETbgv0CjA4";
+                v2.SchoolDepartment = "X53";
+                v2.SchoolGrade = "m0ehx";
+                v2.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
+                v2.Md5Code = "vvgIgji19wQ";
                 context.Set<User>().Add(v1);
                 context.Set<User>().Add(v2);
                 context.SaveChanges();
@@ -277,26 +277,26 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.ID = 58;
-                v1.Name = "SoAQG0PFauC9";
-                v1.Email = "Ar8oqzbit";
-                v1.Phone = "6cyM7";
+                v1.ID = 46;
+                v1.Name = "QZh";
+                v1.Email = "iGsz1n6QXSlFTPb";
+                v1.Phone = "cvm3CWBXPNUicUjnWC";
                 v1.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-                v1.SchoolName = "JKZTY";
-                v1.SchoolDepartment = "FDJBNjcgGOCXehYM5";
-                v1.SchoolGrade = "WFzI4A";
-                v1.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
-                v1.Md5Code = "e60xrGVPfoZ5Ndpm16n";
-                v2.ID = 41;
-                v2.Name = "vj5B3XFr7ls6LIJ";
-                v2.Email = "wUTDt6XHONrZxfm";
-                v2.Phone = "TDFvB8pA95VJM1pdeSv";
-                v2.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Native;
-                v2.SchoolName = "B4QQIpDr";
-                v2.SchoolDepartment = "9wP1igNxouauo2b";
-                v2.SchoolGrade = "dLeI0nspTpAKsR8kV4";
-                v2.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
-                v2.Md5Code = "Z6BB2j";
+                v1.SchoolName = "dmpQrClRAeZMRKy8CNVjaRlxFn4dCR7i8q2T6";
+                v1.SchoolDepartment = "2GPJvWq";
+                v1.SchoolGrade = "pSFnvCZKR";
+                v1.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.Avtivity;
+                v1.Md5Code = "4th4X3W1VoaJ";
+                v2.ID = 61;
+                v2.Name = "qXBDILJhsxk0";
+                v2.Email = "ngkK";
+                v2.Phone = "iFrgo2Jprdrz8SSX5M";
+                v2.IsForeigner = GDesign2022NFT.Model.ForeignerTypeEnum.Foreigner;
+                v2.SchoolName = "5E4szETbgv0CjA4";
+                v2.SchoolDepartment = "X53";
+                v2.SchoolGrade = "m0ehx";
+                v2.AvtivityStatus = GDesign2022NFT.Model.AvtivityStatus.NotAvtivity;
+                v2.Md5Code = "vvgIgji19wQ";
                 context.Set<User>().Add(v1);
                 context.Set<User>().Add(v2);
                 context.SaveChanges();
