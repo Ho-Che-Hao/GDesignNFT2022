@@ -3,12 +3,22 @@
 
 <wt:form vm="@Model">
 <wt:row items-per-row="ItemsPerRowEnum.Two">
-@*<wt:textbox field="Entity.Name" />
-<wt:textbox field="Entity.Md5Code" />*@
-<wt:upload field="Entity.PhotoId" />
+@*<wt:textbox field="Entity.Md5Code" disabled hide-label="true" style="display:none;"/>*@
+<wt:upload field="Entity.PhotoId" file-size="1536000" upload-type="ImageFile" upload-subdir="picture" />
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <wt:display field="Message" style="color:red;" />
+        }
+        
 </wt:row>
     <wt:row align="AlignEnum.Right">
-        <wt:submitbutton />
+        <wt:submitbutton/>
         <wt:closebutton />
     </wt:row>
 </wt:form>
+
+<script>
+var CheckImageMd5 = function(pictureId){
+    console.log(pictureId);
+}
+</script>

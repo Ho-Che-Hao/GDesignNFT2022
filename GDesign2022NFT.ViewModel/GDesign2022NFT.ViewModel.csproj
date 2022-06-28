@@ -9,5 +9,10 @@
   <ItemGroup>
     <ProjectReference Include="..\GDesign2022NFT.Model\GDesign2022NFT.Model.csproj" />
   </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="PicturesVMs\" />
+  </ItemGroup>
 </Project>
 

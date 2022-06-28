@@ -1,6 +1,3 @@
-E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
-E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\MySqlConnector.dll
-E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\appsettings.json
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\GDesign2022NFT.staticwebassets.runtime.json
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\GDesign2022NFT.exe
@@ -312,6 +309,7 @@ E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microso
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
+E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.Data.Sqlite.dll
@@ -330,6 +328,7 @@ E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microso
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.OpenApi.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\MySqlConnector.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Newtonsoft.Json.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Npgsql.dll
@@ -347,6 +346,7 @@ E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\SQLiteP
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\SQLitePCLRaw.provider.e_sqlite3.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\System.Diagnostics.PerformanceCounter.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT\bin\Debug\net6.0\System.DirectoryServices.dll

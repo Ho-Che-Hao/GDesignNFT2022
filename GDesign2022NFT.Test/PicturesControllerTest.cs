@@ -43,9 +43,8 @@ namespace GDesign2022NFT.Test
             PicturesVM vm = rv.Model as PicturesVM;
             Pictures v = new Pictures();
 			
-            v.ID = 47;
-            v.Name = "ldthqcpAMURO5";
-            v.Md5Code = "BVtEq";
+            v.ID = 45;
+            v.Md5Code = "L";
             v.PhotoId = AddFileAttachment();
             vm.Entity = v;
             _controller.Create(vm);
@@ -54,9 +53,8 @@ namespace GDesign2022NFT.Test
             {
                 var data = context.Set<Pictures>().Find(v.ID);
 				
-                Assert.AreEqual(data.ID, 47);
-                Assert.AreEqual(data.Name, "ldthqcpAMURO5");
-                Assert.AreEqual(data.Md5Code, "BVtEq");
+                Assert.AreEqual(data.ID, 45);
+                Assert.AreEqual(data.Md5Code, "L");
                 Assert.AreEqual(data.CreateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.CreateTime.Value).Seconds < 10);
             }
@@ -70,9 +68,8 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
        			
-                v.ID = 47;
-                v.Name = "ldthqcpAMURO5";
-                v.Md5Code = "BVtEq";
+                v.ID = 45;
+                v.Md5Code = "L";
                 v.PhotoId = AddFileAttachment();
                 context.Set<Pictures>().Add(v);
                 context.SaveChanges();
@@ -86,13 +83,11 @@ namespace GDesign2022NFT.Test
             v = new Pictures();
             v.ID = vm.Entity.ID;
        		
-            v.Name = "8R1dP19Ltq4C";
-            v.Md5Code = "GhCl";
+            v.Md5Code = "N4";
             vm.Entity = v;
             vm.FC = new Dictionary<string, object>();
 			
             vm.FC.Add("Entity.ID", "");
-            vm.FC.Add("Entity.Name", "");
             vm.FC.Add("Entity.Md5Code", "");
             vm.FC.Add("Entity.PhotoId", "");
             _controller.Edit(vm);
@@ -101,8 +96,7 @@ namespace GDesign2022NFT.Test
             {
                 var data = context.Set<Pictures>().Find(v.ID);
  				
-                Assert.AreEqual(data.Name, "8R1dP19Ltq4C");
-                Assert.AreEqual(data.Md5Code, "GhCl");
+                Assert.AreEqual(data.Md5Code, "N4");
                 Assert.AreEqual(data.UpdateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.UpdateTime.Value).Seconds < 10);
             }
@@ -117,9 +111,8 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
         		
-                v.ID = 47;
-                v.Name = "ldthqcpAMURO5";
-                v.Md5Code = "BVtEq";
+                v.ID = 45;
+                v.Md5Code = "L";
                 v.PhotoId = AddFileAttachment();
                 context.Set<Pictures>().Add(v);
                 context.SaveChanges();
@@ -150,9 +143,8 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v.ID = 47;
-                v.Name = "ldthqcpAMURO5";
-                v.Md5Code = "BVtEq";
+                v.ID = 45;
+                v.Md5Code = "L";
                 v.PhotoId = AddFileAttachment();
                 context.Set<Pictures>().Add(v);
                 context.SaveChanges();
@@ -170,13 +162,11 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.ID = 47;
-                v1.Name = "ldthqcpAMURO5";
-                v1.Md5Code = "BVtEq";
+                v1.ID = 45;
+                v1.Md5Code = "L";
                 v1.PhotoId = AddFileAttachment();
-                v2.ID = 79;
-                v2.Name = "8R1dP19Ltq4C";
-                v2.Md5Code = "GhCl";
+                v2.ID = 31;
+                v2.Md5Code = "N4";
                 v2.PhotoId = v1.PhotoId; 
                 context.Set<Pictures>().Add(v1);
                 context.Set<Pictures>().Add(v2);
@@ -214,13 +204,11 @@ namespace GDesign2022NFT.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.ID = 47;
-                v1.Name = "ldthqcpAMURO5";
-                v1.Md5Code = "BVtEq";
+                v1.ID = 45;
+                v1.Md5Code = "L";
                 v1.PhotoId = AddFileAttachment();
-                v2.ID = 79;
-                v2.Name = "8R1dP19Ltq4C";
-                v2.Md5Code = "GhCl";
+                v2.ID = 31;
+                v2.Md5Code = "N4";
                 v2.PhotoId = v1.PhotoId; 
                 context.Set<Pictures>().Add(v1);
                 context.Set<Pictures>().Add(v2);
@@ -259,14 +247,14 @@ namespace GDesign2022NFT.Test
             {
                 try{
 
-                v.FileName = "LGrymy5Tz";
-                v.FileExt = "KpOC7DKB";
-                v.Path = "R5sUClyVwm5QD1SxX";
-                v.Length = 10;
-                v.UploadTime = DateTime.Parse("2021-02-22 14:13:10");
-                v.SaveMode = "kR8C";
-                v.ExtraInfo = "TsH8jC5BMo";
-                v.HandlerInfo = "FncDQ64l";
+                v.FileName = "DE2kwuAjwa3nb";
+                v.FileExt = "Va3YQV";
+                v.Path = "w7CdUMnXb";
+                v.Length = 41;
+                v.UploadTime = DateTime.Parse("2022-08-12 18:23:23");
+                v.SaveMode = "Bf6dvVBsSr58pC8";
+                v.ExtraInfo = "Ij523A38BN9";
+                v.HandlerInfo = "DaKCWQDkQKYPGQNQ7A";
                 context.Set<FileAttachment>().Add(v);
                 context.SaveChanges();
                 }

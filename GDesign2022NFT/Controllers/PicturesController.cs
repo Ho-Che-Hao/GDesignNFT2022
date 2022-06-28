@@ -5,15 +5,24 @@ using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.Core.Extensions;
 using GDesign2022NFT.ViewModel.PicturesVMs;
+using System.Linq;
+using Microsoft.AspNetCore.Hosting;
 using System.Security.Cryptography;
-using System.Text;
+using GDesign2022NFT.Model;
 
 namespace GDesign2022NFT.Controllers
 {
     
-    [ActionDescription("圖片編輯區塊")]
+    [ActionDescription("圖片編輯")]
     public partial class PicturesController : BaseController
     {
+        private readonly IHostingEnvironment _hostingEnvironment;
+
+        public PicturesController(IHostingEnvironment hostingEnvironment)
+        {
+            _hostingEnvironment = hostingEnvironment;
+        }
+
         #region Search
         [ActionDescription("Sys.Search")]
         public ActionResult Index()
@@ -57,8 +66,36 @@ namespace GDesign2022NFT.Controllers
                 return PartialView(vm);
             }
             else
-            {                
-                //vm.Entity.Md5Code = ToMD5(System.Text.Encoding.UTF8.GetString(vm.Entity.Photo.FileData));
+            {
+                var picture = DC.Set<FileAttachment>().FirstOrDefault(x=> x.ID == vm.Entity.PhotoId);
+                if (picture == null)
+                {
+                    vm.Message = "找不到圖片";
+                    return PartialView(vm);
+                }
+                string webRootPath = _hostingEnvironment.ContentRootPath;
+                var itempath = $"{webRootPath}{picture.Path.Replace("./","\\")}";
+                var photoByte = System.IO.File.ReadAllBytes(itempath);
+                using (var cryptoMD5 = MD5.Create())
+                {
+                    
+                    //取得雜湊值位元組陣列
+                    var hash = cryptoMD5.ComputeHash(photoByte);
+
+                    //取得 MD5
+                    var md5 = BitConverter.ToString(hash)
+                        .Replace("-", string.Empty)
+                        .ToUpper();
+
+                    var pictureItems = DC.Set<Pictures>().FirstOrDefault(x => x.Md5Code == md5);
+                    if (pictureItems != null)
+                    {
+                        vm.Message = "圖片已經上傳過";
+                        return PartialView(vm);
+                    }
+                    vm.Entity.Md5Code = md5;
+                }
+
                 vm.DoAdd();
                 if (!ModelState.IsValid)
                 {
@@ -218,28 +255,5 @@ namespace GDesign2022NFT.Controllers
             return vm.GetExportData();
         }
 
-        /// <summary>
-        ///     MD5 是一種雜湊演算法，雜湊後的字串長度為 32 位，具不可逆的特性，常用於密碼欄位加密
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
-        public string ToMD5(string str)
-        {
-            using (var cryptoMD5 = MD5.Create())
-            {
-                //將字串編碼成 UTF8 位元組陣列
-                var bytes = Encoding.UTF8.GetBytes(str);
-
-                //取得雜湊值位元組陣列
-                var hash = cryptoMD5.ComputeHash(bytes);
-
-                //取得 MD5
-                var md5 = BitConverter.ToString(hash)
-                    .Replace("-", string.Empty)
-                    .ToUpper();
-
-                return md5;
-            }
-        }
     }
 }

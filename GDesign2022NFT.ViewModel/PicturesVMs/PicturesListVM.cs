@@ -32,7 +32,6 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
         protected override IEnumerable<IGridColumn<Pictures_View>> InitGridHeader()
         {
             return new List<GridColumn<Pictures_View>>{
-                this.MakeGridHeader(x => x.Name),
                 this.MakeGridHeader(x => x.Md5Code),
                 this.MakeGridHeader(x => x.PhotoId).SetFormat(PhotoIdFormat),
                 this.MakeGridHeaderAction(width: 200)
@@ -51,11 +50,9 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
         public override IOrderedQueryable<Pictures_View> GetSearchQuery()
         {
             var query = DC.Set<Pictures>()
-                .CheckContain(Searcher.Name, x=>x.Name)
                 .Select(x => new Pictures_View
                 {
 				    ID = x.ID,
-                    Name = x.Name,
                     Md5Code = x.Md5Code,
                     PhotoId = x.PhotoId,
                 })

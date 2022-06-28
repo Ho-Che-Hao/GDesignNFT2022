@@ -12,9 +12,10 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
 {
     public partial class PicturesVM : BaseCRUDVM<Pictures>
     {
-
+        public string Message { set; get; }
         public PicturesVM()
         {
+            
         }
 
         protected override void InitVM()
