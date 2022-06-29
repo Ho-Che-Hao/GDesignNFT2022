@@ -88,7 +88,7 @@ namespace GDesign2022NFT.Controllers
                         .Replace("-", string.Empty)
                         .ToUpper();
 
-                    var pictureItems = DC.Set<Pictures>().FirstOrDefault(x => x.Md5Code == md5);
+                    var pictureItems = DC.Set<Pictures>().FirstOrDefault(x => x.Md5Code == md5 && x.IsValid);
                     if (pictureItems != null)
                     {
                         vm.Message = "圖片已經上傳過";

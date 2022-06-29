@@ -28,7 +28,8 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "", dialogWidth: 800),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Details, Localizer["Sys.Details"], "", dialogWidth: 800),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchEdit, Localizer["Sys.BatchEdit"], "", dialogWidth: 800),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchDelete, Localizer["Sys.BatchDelete"], "", dialogWidth: 800),
+                //設定彈跳確認視窗
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchDelete, Localizer["Sys.BatchDelete"], "", dialogWidth: 800).SetPromptMessage("確定要刪除?").SetShowDialog(false),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Import, Localizer["Sys.Import"], "", dialogWidth: 800),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.ExportExcel, Localizer["Sys.Export"], ""),
             };
@@ -57,7 +58,7 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
 
         public override IOrderedQueryable<Pictures_View> GetSearchQuery()
         {
-            var query = DC.Set<Pictures>()
+            var query = DC.Set<Pictures>().CheckEqual(Searcher.IsValid, x => x.IsValid)
                 .Select(x => new Pictures_View
                 {
 				    ID = x.ID,

@@ -12,9 +12,10 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
 {
     public partial class PicturesSearcher : BaseSearcher
     {
-
+        [Display(Name = "狀態")] public bool IsValid { get; set; }
         protected override void InitVM()
         {
+            this.IsValid = true;
         }
 
     }

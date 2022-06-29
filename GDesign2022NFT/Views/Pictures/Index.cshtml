@@ -3,6 +3,7 @@
 
 <wt:searchpanel vm="@Model" reset-btn="true">
 <wt:row items-per-row="ItemsPerRowEnum.Three">
+	<wt:radio field="Searcher.IsValid" yes-text="顯示" no-text="垃圾桶" default-value="true"/>
 </wt:row>
 </wt:searchpanel>
 <wt:grid vm="@Model" url="/Pictures/Search"/>
