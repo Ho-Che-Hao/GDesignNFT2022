@@ -67,6 +67,7 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
+                //todo: 將程式碼移往正確檔案位置 (先將邏輯寫在 controller )
                 var picture = DC.Set<FileAttachment>().FirstOrDefault(x=> x.ID == vm.Entity.PhotoId);
                 if (picture == null)
                 {

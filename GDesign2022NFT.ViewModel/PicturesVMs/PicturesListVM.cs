@@ -17,6 +17,8 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
         {
             return new List<GridAction>
             {
+                //todo: 自行新增按鈕
+                //this.MakeAction("ControllerName","ActionName","名稱","彈跳名稱",GridActionParameterTypesEnum.NoId,"自定義",600).SetIconCls("layui-icon layui-icon-add-1"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"", dialogWidth: 800),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Edit, Localizer["Sys.Edit"], "", dialogWidth: 800),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "", dialogWidth: 800),
