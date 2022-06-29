@@ -22,16 +22,16 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
             return new List<GridAction>
             {
                 //todo: 自行新增按鈕
-                //this.MakeAction("ControllerName","ActionName","名稱","彈跳名稱",GridActionParameterTypesEnum.NoId,"自定義",600).SetIconCls("layui-icon layui-icon-add-1"),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"", dialogWidth: 800),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Edit, Localizer["Sys.Edit"], "", dialogWidth: 800),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "", dialogWidth: 800),
+                //this.MakeAction("Pictures","Edit","名稱","彈跳名稱",GridActionParameterTypesEnum.NoId,"自定義",600).SetIconCls("layui-icon layui-icon-add-1").SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Edit, Localizer["Sys.Edit"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Details, Localizer["Sys.Details"], "", dialogWidth: 800),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchEdit, Localizer["Sys.BatchEdit"], "", dialogWidth: 800),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchEdit, Localizer["Sys.BatchEdit"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
                 //設定彈跳確認視窗
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchDelete, Localizer["Sys.BatchDelete"], "", dialogWidth: 800).SetPromptMessage("確定要刪除?").SetShowDialog(false),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Import, Localizer["Sys.Import"], "", dialogWidth: 800),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.ExportExcel, Localizer["Sys.Export"], ""),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchDelete, Localizer["Sys.BatchDelete"], "", dialogWidth: 800).SetPromptMessage("確定要刪除?").SetShowDialog(false).SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Import, Localizer["Sys.Import"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.ExportExcel, Localizer["Sys.Export"], "").SetBindVisiableColName("PictureStatus"),
             };
         }
 
@@ -41,7 +41,11 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
             return new List<GridColumn<Pictures_View>>{
                 this.MakeGridHeader(x => x.Md5Code),
                 this.MakeGridHeader(x => x.PhotoId).SetFormat(PhotoIdFormat),
-                this.MakeGridHeaderAction(width: 200)
+                this.MakeGridHeader(x=> "PictureStatus").SetHide().SetFormat((a, b) =>
+                {
+                    return Searcher.IsValid.ToString().ToLower();
+                }),
+                this.MakeGridHeaderAction(width: 200),
             };
         }
         private List<ColumnFormatInfo> PhotoIdFormat(Pictures_View entity, object val)
@@ -53,6 +57,11 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
                 ColumnFormatInfo.MakeDownloadButton(ButtonTypesEnum.Button,entity.PhotoId),
                 //ColumnFormatInfo.MakeViewButton(ButtonTypesEnum.Button,entity.PhotoId,640,480),
             };
+        }
+
+        private bool CheckStatus(Pictures_View entity, object val)
+        {
+            return entity.IsValid;
         }
 
 
