@@ -20,6 +20,7 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
 
         protected override void InitVM()
         {
+            //todo:定義初始化給值內容
         }
 
         public override void DoAdd()

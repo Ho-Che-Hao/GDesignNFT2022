@@ -35,12 +35,27 @@ namespace GDesign2022NFT.ViewModel.UserVMs
                 this.MakeGridHeader(x => x.Name),
                 this.MakeGridHeader(x => x.Email),
                 this.MakeGridHeader(x => x.Phone),
-                this.MakeGridHeader(x => x.IsForeigner),
+                //todo: 設定背景顏色
+                this.MakeGridHeader(x => x.IsForeigner).SetBackGroundFunc((a) =>
+                {
+                    if (a.IsForeigner == ForeignerTypeEnum.Native)
+                    {
+                        return "#eeeeee";
+                    }
+                    else
+                    {
+                        return "#ffffff";
+                    }
+                }),
                 this.MakeGridHeader(x => x.SchoolName),
                 this.MakeGridHeader(x => x.SchoolDepartment),
-                this.MakeGridHeader(x => x.SchoolGrade),
+                //todo: SetSort 排序
+                this.MakeGridHeader(x => x.SchoolGrade).SetSort(),
                 this.MakeGridHeader(x => x.AvtivityStatus),
                 this.MakeGridHeader(x => x.Md5Code),
+
+                //todo: 自定義欄位
+                this.MakeGridHeader(x=> "新增欄位").SetHeader("新標題").SetFormat((a,b)=> "789"),
                 this.MakeGridHeaderAction(width: 200)
             };
         }

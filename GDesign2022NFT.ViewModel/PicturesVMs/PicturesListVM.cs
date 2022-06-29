@@ -13,6 +13,10 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
 {
     public partial class PicturesListVM : BasePagedListVM<Pictures_View, PicturesSearcher>
     {
+        public PicturesListVM(){
+           //是否需要分頁
+            //NeedPage = false,
+        }
         protected override List<GridAction> InitGridAction()
         {
             return new List<GridAction>
@@ -43,8 +47,10 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
         {
             return new List<ColumnFormatInfo>
             {
+                //todo: 自定義圖片列表顯示內容
+                ColumnFormatInfo.MakeHtml($"<img src='{entity.PhotoPath}'>"),
                 ColumnFormatInfo.MakeDownloadButton(ButtonTypesEnum.Button,entity.PhotoId),
-                ColumnFormatInfo.MakeViewButton(ButtonTypesEnum.Button,entity.PhotoId,640,480),
+                //ColumnFormatInfo.MakeViewButton(ButtonTypesEnum.Button,entity.PhotoId,640,480),
             };
         }
 
@@ -57,6 +63,7 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
 				    ID = x.ID,
                     Md5Code = x.Md5Code,
                     PhotoId = x.PhotoId,
+                    PhotoPath = x.Photo.Path
                 })
                 .OrderBy(x => x.ID);
             return query;
@@ -65,6 +72,6 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
     }
 
     public class Pictures_View : Pictures{
-
+        public string PhotoPath { set; get; }
     }
 }
