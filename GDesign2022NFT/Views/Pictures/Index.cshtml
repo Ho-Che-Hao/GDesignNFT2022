@@ -1,9 +1,29 @@
 ﻿@model GDesign2022NFT.ViewModel.PicturesVMs.PicturesListVM
 @inject IStringLocalizer<Program> Localizer;
 
-<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:searchpanel vm="@Model" reset-btn="false" search-btn-id="itemHideSearch">
 <wt:row items-per-row="ItemsPerRowEnum.Three">
-	<wt:radio field="Searcher.IsValid" yes-text="顯示" no-text="垃圾桶" default-value="true"/>
+	<wt:radio field="Searcher.IsValid" yes-text="顯示" no-text="垃圾桶" default-value="true" change-func="SearchStatus()" id="aaabbbc"/>
+	<wt:hidden field="Searcher.IsValid" id="ValidStatus"></wt:hidden>
 </wt:row>
 </wt:searchpanel>
-<wt:grid vm="@Model" url="/Pictures/Search"/>
+<wt:grid vm="@Model" url="/Pictures/Search" done-func="CheckHideAction"/>
+@*<wt:hidden field="Searcher.IsValid" id="ValidStatus"></wt:hidden>*@
+
+
+<style>
+#itemHideSearch{
+	display:none;
+}
+</style>
+
+<script>
+function SearchStatus(){
+	$("#ValidStatus").val($("input[name='Searcher.IsValid']:checked").val());
+	$("#itemHideSearch").trigger("click");
+}
+
+function CheckHideAction(a){
+	console.log($("#ValidStatus").val());
+}
+</script>

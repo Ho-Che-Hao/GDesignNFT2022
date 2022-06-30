@@ -9,6 +9,9 @@ using System.Linq;
 using Microsoft.AspNetCore.Hosting;
 using System.Security.Cryptography;
 using GDesign2022NFT.Model;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using GDesign2022NFT.Utility;
 
 namespace GDesign2022NFT.Controllers
 {
@@ -16,11 +19,13 @@ namespace GDesign2022NFT.Controllers
     [ActionDescription("圖片編輯")]
     public partial class PicturesController : BaseController
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        //private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly EvniromentFunc _evniromentFunc;
 
         public PicturesController(IHostingEnvironment hostingEnvironment)
         {
-            _hostingEnvironment = hostingEnvironment;
+            //_hostingEnvironment = hostingEnvironment;
+            _evniromentFunc = new EvniromentFunc(hostingEnvironment);
         }
 
         #region Search
@@ -39,7 +44,14 @@ namespace GDesign2022NFT.Controllers
             if (ModelState.IsValid)
             {
                 vm.Searcher = searcher;
-                return vm.GetJson(false);
+                var item = new Dictionary<string, object>();
+                item.Add("IsValid", searcher.IsValid);
+                
+                var itemData = vm.GetJson(false);
+                
+                
+                //Regex.Replace(itemData, "}}$",$"\nIsValid:{searcher.IsValid}}}");
+                return itemData;
             }
             else
             {
@@ -74,9 +86,10 @@ namespace GDesign2022NFT.Controllers
                     vm.Message = "找不到圖片";
                     return PartialView(vm);
                 }
-                string webRootPath = _hostingEnvironment.ContentRootPath;
-                var itempath = $"{webRootPath}{picture.Path.Replace("./","\\")}";
-                var photoByte = System.IO.File.ReadAllBytes(itempath);
+                //string webRootPath = _hostingEnvironment.ContentRootPath;
+                //var itempath = $"{webRootPath}{picture.Path.Replace("./","\\")}";
+                var itemPath = _evniromentFunc.GetServerMappath(picture.Path);
+                var photoByte = System.IO.File.ReadAllBytes(itemPath);
                 using (var cryptoMD5 = MD5.Create())
                 {
                     

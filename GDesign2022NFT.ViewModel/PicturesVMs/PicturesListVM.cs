@@ -14,7 +14,7 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
     public partial class PicturesListVM : BasePagedListVM<Pictures_View, PicturesSearcher>
     {
         public PicturesListVM(){
-           //是否需要分頁
+            //是否需要分頁
             //NeedPage = false,
         }
         protected override List<GridAction> InitGridAction()
@@ -23,18 +23,17 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
             {
                 //todo: 自行新增按鈕
                 //this.MakeAction("Pictures","Edit","名稱","彈跳名稱",GridActionParameterTypesEnum.NoId,"自定義",600).SetIconCls("layui-icon layui-icon-add-1").SetBindVisiableColName("PictureStatus"),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"", dialogWidth: 800).SetButtonClass("ToolBarBtn"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Edit, Localizer["Sys.Edit"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Details, Localizer["Sys.Details"], "", dialogWidth: 800),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchEdit, Localizer["Sys.BatchEdit"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchEdit, Localizer["Sys.BatchEdit"], "", dialogWidth: 800).SetButtonClass("ToolBarBtn"),
                 //設定彈跳確認視窗
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.BatchDelete, Localizer["Sys.BatchDelete"], "", dialogWidth: 800).SetPromptMessage("確定要刪除?").SetShowDialog(false).SetBindVisiableColName("PictureStatus"),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Import, Localizer["Sys.Import"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
-                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.ExportExcel, Localizer["Sys.Export"], "").SetBindVisiableColName("PictureStatus"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Import, Localizer["Sys.Import"], "", dialogWidth: 800).SetButtonClass("ToolBarBtn"),
+                this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.ExportExcel, Localizer["Sys.Export"], "").SetButtonClass("ToolBarBtn"),
             };
         }
-
 
         protected override IEnumerable<IGridColumn<Pictures_View>> InitGridHeader()
         {
