@@ -46,8 +46,7 @@ namespace GDesign2022NFT.Controllers
                 vm.Searcher = searcher;
                 var item = new Dictionary<string, object>();
                 item.Add("IsValid", searcher.IsValid);
-                
-                var itemData = vm.GetJson(false);
+                var itemData = vm.GetJson(false,true,()=> item);
                 
                 
                 //Regex.Replace(itemData, "}}$",$"\nIsValid:{searcher.IsValid}}}");
