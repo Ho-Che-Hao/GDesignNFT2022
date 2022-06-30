@@ -44,6 +44,11 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
                 {
                     return Searcher.IsValid.ToString().ToLower();
                 }),
+                /*this.MakeGridHeader(x=> "CostomerEditBtn").SetFormat((a, b) =>
+                {
+                    var btn = UIService.MakeScriptButton(ButtonTypesEnum.Button,"客製編輯",$"test({a.PhotoId})",buttonClass : "testbtn");
+                    return btn;
+                }),*/
                 this.MakeGridHeaderAction(width: 200),
             };
         }

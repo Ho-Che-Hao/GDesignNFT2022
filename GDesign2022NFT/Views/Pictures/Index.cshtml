@@ -1,13 +1,13 @@
 ﻿@model GDesign2022NFT.ViewModel.PicturesVMs.PicturesListVM
 @inject IStringLocalizer<Program> Localizer;
 
-<wt:searchpanel vm="@Model" reset-btn="false" search-btn-id="itemHideSearch">
+<wt:searchpanel vm="@Model" reset-btn="false" search-btn-id="itemHideSearch" grid-id="grid1">
 <wt:row items-per-row="ItemsPerRowEnum.Three">
-	<wt:radio field="Searcher.IsValid" yes-text="顯示" no-text="垃圾桶" default-value="true" change-func="SearchStatus()" id="aaabbbc"/>
+	<wt:radio field="Searcher.IsValid" yes-text="顯示" no-text="垃圾桶" default-value="true" change-func="SearchStatus" id="aaabbbc"/>
 	<wt:hidden field="Searcher.IsValid" id="ValidStatus"></wt:hidden>
 </wt:row>
 </wt:searchpanel>
-<wt:grid vm="@Model" url="/Pictures/Search" done-func="CheckHideAction"/>
+<wt:grid vm="@Model" url="/Pictures/Search" done-func="CheckHideAction" id="grid1"/>
 @*<wt:hidden field="Searcher.IsValid" id="ValidStatus"></wt:hidden>*@
 
 
@@ -15,15 +15,30 @@
 #itemHideSearch{
 	display:none;
 }
+*.hide{
+	display:none !important;
+}
 </style>
 
 <script>
-function SearchStatus(){
-	$("#ValidStatus").val($("input[name='Searcher.IsValid']:checked").val());
-	$("#itemHideSearch").trigger("click");
+
+function SearchStatus(aaa){
+	//$("#ValidStatus").val($("input[name='Searcher.IsValid']:checked").val());
+	//$("#itemHideSearch").trigger("click");
+	layui.table.reload("grid1",{where : { 
+		"Searcher.IsValid": $("input[name='Searcher.IsValid']:checked").val(),
+		//"Page" : 2
+	}
+	});
+
+	//ff.OpenDialog("path","@Guid.NewGuid()","標題",400);
 }
 
 function CheckHideAction(a){
-	console.log($("#ValidStatus").val());
+	if(a.IsValid.toString().toLowerCase() === "true"){
+		$(".ToolBarBtn").parent().parent().parent().removeClass("hide");
+	}else{
+		$(".ToolBarBtn").parent().parent().parent().addClass("hide");
+	}
 }
 </script>
