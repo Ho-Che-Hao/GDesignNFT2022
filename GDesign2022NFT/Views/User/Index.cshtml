@@ -2,7 +2,12 @@
 @inject IStringLocalizer<Program> Localizer;
 
 <wt:searchpanel vm="@Model" reset-btn="true">
-<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:row items-per-row="ItemsPerRowEnum.One">
+	<wt:radio field="Searcher.IsForeigner"  />
+	<wt:radio field="Searcher.AvtivityStatus"  />
+	<wt:textbox field="Searcher.Name" />
+	<wt:textbox field="Searcher.SchoolName" />
+	<wt:textbox field="Searcher.Email" />
 </wt:row>
 </wt:searchpanel>
-<wt:grid vm="@Model" url="/User/Search"/>
+<wt:grid vm="@Model" url="/User/Search" />

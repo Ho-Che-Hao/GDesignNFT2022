@@ -32,6 +32,7 @@ namespace GDesign2022NFT.Model
         [Required(ErrorMessage = "電話必填")]
         public string Phone { set; get; }
 
+        [Display(Name = "當地人/外國人")]
         public ForeignerTypeEnum IsForeigner { set; get; }
 
         [Display(Name = "學校名稱")]
@@ -47,6 +48,7 @@ namespace GDesign2022NFT.Model
         [StringLength(10, ErrorMessage = "就讀年級長度不可超過10字元")]
         public string SchoolGrade { set; get; }
 
+        [Display(Name = "信箱驗證狀況")]
         public AvtivityStatus AvtivityStatus { set; get; }
 
         [Required(ErrorMessage = "代號不可為 Null")]
@@ -54,13 +56,17 @@ namespace GDesign2022NFT.Model
     }
 
     public enum ForeignerTypeEnum{
+        [Display(Name = "當地人")]
         Native = 0,
+        [Display(Name = "外國人")]
         Foreigner = 1,        
     }
 
     public enum AvtivityStatus
     {
+        [Display(Name = "未驗證")]
         NotAvtivity = 0,
+        [Display(Name = "已驗證")]
         Avtivity = 1
     }
 }

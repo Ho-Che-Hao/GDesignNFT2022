@@ -7,7 +7,7 @@ using WalkingTec.Mvvm.Core.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using GDesign2022NFT.Model;
-
+using static GDesign2022NFT.ViewModel.UserVMs.UserSearcher;
 
 namespace GDesign2022NFT.ViewModel.UserVMs
 {
@@ -40,29 +40,49 @@ namespace GDesign2022NFT.ViewModel.UserVMs
                 {
                     if (a.IsForeigner == ForeignerTypeEnum.Native)
                     {
-                        return "#eeeeee";
+                        return "#ffffff";
                     }
                     else
                     {
-                        return "#ffffff";
+                        return "#FFE4B5";
                     }
                 }),
                 this.MakeGridHeader(x => x.SchoolName),
                 this.MakeGridHeader(x => x.SchoolDepartment),
                 //todo: SetSort 排序
                 this.MakeGridHeader(x => x.SchoolGrade).SetSort(),
-                this.MakeGridHeader(x => x.AvtivityStatus),
-                this.MakeGridHeader(x => x.Md5Code),
+                this.MakeGridHeader(x => x.AvtivityStatus).SetForeGroundFunc((a)=>
+                  {
+                      if(a.AvtivityStatus == AvtivityStatus.NotAvtivity)
+                      {
+                          return "#ff0000";
+                      }
+                      else
+                      {
+                          return "";
+                      }
+                  }
+                ),
+                //this.MakeGridHeader(x => x.Md5Code),
 
                 //todo: 自定義欄位
-                this.MakeGridHeader(x=> "新增欄位").SetHeader("新標題").SetFormat((a,b)=> "789"),
+               // this.MakeGridHeader(x=> "新增欄位").SetHeader("新標題").SetFormat((a,b)=> "789"),
                 this.MakeGridHeaderAction(width: 200)
             };
         }
 
         public override IOrderedQueryable<User_View> GetSearchQuery()
         {
-            var query = DC.Set<User>()
+            var itemQuery = DC.Set<User>().AsQueryable();
+            if (!Searcher.IsForeigner.Equals(SearchForeignerTypeEnum.All))
+            {
+                itemQuery = itemQuery.CheckEqual((int)Searcher.IsForeigner, x => (int)x.IsForeigner);
+            }
+            if (!Searcher.AvtivityStatus.Equals(SearchAvtivityStatus.All))
+            {
+                itemQuery = itemQuery.CheckEqual((int)Searcher.AvtivityStatus, x => (int)x.AvtivityStatus);
+            }
+            var query = itemQuery.CheckContain(Searcher.Name,x=>x.Name).CheckContain(Searcher.Email, x => x.Email).CheckContain(Searcher.SchoolName, x => x.Email)
                 .Select(x => new User_View
                 {
 				    ID = x.ID,
