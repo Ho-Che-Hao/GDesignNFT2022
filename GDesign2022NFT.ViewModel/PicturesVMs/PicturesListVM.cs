@@ -57,9 +57,9 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
             return new List<ColumnFormatInfo>
             {
                 //todo: 自定義圖片列表顯示內容
-                ColumnFormatInfo.MakeHtml($"<img src='{entity.PhotoPath}'>"),
+                //ColumnFormatInfo.MakeHtml($"<img src='{entity.PhotoPath}'>"),
                 ColumnFormatInfo.MakeDownloadButton(ButtonTypesEnum.Button,entity.PhotoId),
-                //ColumnFormatInfo.MakeViewButton(ButtonTypesEnum.Button,entity.PhotoId,640,480),
+                ColumnFormatInfo.MakeViewButton(ButtonTypesEnum.Button,entity.PhotoId,640,480),
             };
         }
 

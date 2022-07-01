@@ -12,6 +12,7 @@ using GDesign2022NFT.Model;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using GDesign2022NFT.Utility;
+using GDesign2022NFT.ViewModel.MultiplePicturesVMs;
 
 namespace GDesign2022NFT.Controllers
 {
@@ -64,11 +65,15 @@ namespace GDesign2022NFT.Controllers
         [ActionDescription("Sys.Create")]
         public ActionResult Create()
         {
-            var vm = Wtm.CreateVM<PicturesVM>();
+            /*var vm = Wtm.CreateVM<PicturesVM>();
             return PartialView(vm);
+            */
+            //todo : 多組上傳
+            var vm = Wtm.CreateVM<MultiplePicturesVM>();
+            return PartialView("~/Views/MultiplePictures/Create.cshtml", vm);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         [ActionDescription("Sys.Create")]
         public ActionResult Create(PicturesVM vm)
         {
@@ -78,37 +83,7 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
-                //todo: 將程式碼移往正確檔案位置 (先將邏輯寫在 controller )
-                var picture = DC.Set<FileAttachment>().FirstOrDefault(x=> x.ID == vm.Entity.PhotoId);
-                if (picture == null)
-                {
-                    vm.Message = "找不到圖片";
-                    return PartialView(vm);
-                }
-                //string webRootPath = _hostingEnvironment.ContentRootPath;
-                //var itempath = $"{webRootPath}{picture.Path.Replace("./","\\")}";
-                var itemPath = _evniromentFunc.GetServerMappath(picture.Path);
-                var photoByte = System.IO.File.ReadAllBytes(itemPath);
-                using (var cryptoMD5 = MD5.Create())
-                {
-                    
-                    //取得雜湊值位元組陣列
-                    var hash = cryptoMD5.ComputeHash(photoByte);
-
-                    //取得 MD5
-                    var md5 = BitConverter.ToString(hash)
-                        .Replace("-", string.Empty)
-                        .ToUpper();
-
-                    var pictureItems = DC.Set<Pictures>().FirstOrDefault(x => x.Md5Code == md5 && x.IsValid);
-                    if (pictureItems != null)
-                    {
-                        vm.Message = "圖片已經上傳過";
-                        return PartialView(vm);
-                    }
-                    vm.Entity.Md5Code = md5;
-                }
-
+                vm.Entity.Md5Code = vm.GetImageMd5(vm.Entity.PhotoId);
                 vm.DoAdd();
                 if (!ModelState.IsValid)
                 {
@@ -117,6 +92,44 @@ namespace GDesign2022NFT.Controllers
                 }
                 else
                 {
+                    return FFResult().CloseDialog().RefreshGrid();
+                }
+            }
+        }*/
+
+        [HttpPost]
+        [ActionDescription("Sys.Create")]
+        public ActionResult Create(MultiplePicturesVM vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView("~/Views/MultiplePictures/Create.cshtml", vm);
+            }
+            else
+            {
+                vm.DoAdd();
+                if (!ModelState.IsValid)
+                {
+                    vm.DoReInit();
+                    return PartialView("~/Views/MultiplePictures/Create.cshtml", vm);
+                }
+                else
+                {
+                    var allowMD5Items = vm.GetImageMd5(vm.Entity.Photos.Select(x => x.FileId).ToList());
+                    var allowMD5FileIds = allowMD5Items.Select(x => x.Key).ToList();
+                    var items = DC.Set<MultiplePicturesUpload>().Where(x => allowMD5FileIds.Contains(x.FileId)).ToList();
+                    foreach (var MD5item in allowMD5Items)
+                    {
+                        var item = items.FirstOrDefault(x => x.FileId.Equals(MD5item.Key));
+                        if (item != null)
+                        {
+                            var picture = Wtm.CreateVM<PicturesVM>();
+                            picture.Entity.Md5Code = MD5item.Value;
+                            picture.Entity.PhotoId = MD5item.Key;
+                            picture.DoAdd();
+                        }
+
+                    }
                     return FFResult().CloseDialog().RefreshGrid();
                 }
             }
@@ -142,6 +155,7 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
+                vm.Entity.Md5Code = vm.GetImageMd5(vm.Entity.PhotoId);
                 vm.DoEdit();
                 if (!ModelState.IsValid)
                 {

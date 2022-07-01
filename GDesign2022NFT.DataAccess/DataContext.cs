@@ -15,12 +15,16 @@ namespace GDesign2022NFT.DataAccess
 
         public DbSet<Pictures> Pictures { get; set; }
 
+        public DbSet<MultiplePictures> MultiplePictures { get; set; }
+
         public DbSet<RelationUserPictures> RelationUserPictures { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*modelBuilder.Entity<RelationUserPictures>()
-                .HasIndex(b => b.PicturesId);*/
+            //定義唯一值 索引，資料庫
+            modelBuilder.Entity<RelationUserPictures>()
+                .HasIndex(b => b.PicturesId);
+            base.OnModelCreating(modelBuilder);
             //var b = modelBuilder.Entity<Pictures>();
         }
 
