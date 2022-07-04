@@ -26,6 +26,7 @@ namespace GDesign2022NFT.Model
 
         [Display(Name = "信箱")]
         [Required(ErrorMessage = "信箱必填")]
+        //[RegularExpression("^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$", ErrorMessage = "格式不正確")]
         public string Email { set; get; }
 
         [Display(Name = "連絡電話")]
@@ -53,6 +54,7 @@ namespace GDesign2022NFT.Model
 
         //[Required(ErrorMessage = "代號不可為 Null")]
         public string Md5Code { set; get; }
+
     }
 
     public enum ForeignerTypeEnum{

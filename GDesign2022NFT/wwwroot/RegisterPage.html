@@ -13,10 +13,17 @@
 </head>
 <body>
     <div id="form_data">
+	<div style="text-align: center;margin-top:60px;">
+                      <div style="display: inline-block;">
+					  <!-- <i class="material-icons" style="font-size:20px; line-height:20px;">person</i> -->
+                          <div class="step_title">基本資料</div>
+                      </div>
+                      <div style="display: inline-block;"> <span class="must_write">*</span>為必填資料</div>
+                  </div>
         <table>
             <tr class="formItemGroup">
                 <td>
-                    姓名
+                    <span class="must_write">*</span>姓名
                 </td>
 
                 <td>
@@ -27,7 +34,7 @@
 
             <tr class="formItemGroup">
                 <td>
-                    本國人 / 外國人
+                    <span class="must_write">*</span>本國人 / 外國人
                 </td>
 
                 <td>
@@ -46,7 +53,7 @@
 
             <tr class="formItemGroup">
                 <td>
-                    {{identyTitle}}
+                    <span class="must_write">*</span>{{identyTitle}}
                 </td>
 
                 <td>
@@ -57,7 +64,7 @@
 
             <tr class="formItemGroup">
                 <td>
-                    Email
+                    <span class="must_write">*</span>Email
                 </td>
 
                 <td>
@@ -68,7 +75,7 @@
 
             <tr class="formItemGroup">
                 <td>
-                    連絡電話
+                    <span class="must_write">*</span>連絡電話
                 </td>
 
                 <td>
@@ -79,7 +86,7 @@
 
             <tr class="formItemGroup">
                 <td>
-                    就讀學校
+                    <span class="must_write">*</span>就讀學校
                 </td>
 
                 <td>
@@ -90,7 +97,7 @@
 
             <tr class="formItemGroup">
                 <td>
-                    就讀系所
+                    <span class="must_write">*</span>就讀系所
                 </td>
 
                 <td>
@@ -101,7 +108,7 @@
 
             <tr class="formItemGroup">
                 <td>
-                    就讀年級
+                    <span class="must_write">*</span>就讀年級
                 </td>
 
                 <td>
@@ -110,6 +117,11 @@
                 </td>
             </tr>
         </table>
+		<div id="infoidenty">
+                        <label>
+                            <input type="checkbox"  style="margin-top:20px;" v-model="data.checkRead">我同意此個資保護條款</label>
+							<span class="linkStyle" onclick="showIdentyInfo()">閱讀條款</span>
+		</div>
         <button id="BtnSave" @click="Submit();">送出</button>
     </div>
 </body>

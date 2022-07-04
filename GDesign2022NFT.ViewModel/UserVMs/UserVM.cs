@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Core.Extensions;
 using GDesign2022NFT.Model;
-
+using System.Net.Mail;
 
 namespace GDesign2022NFT.ViewModel.UserVMs
 {
@@ -32,6 +32,11 @@ namespace GDesign2022NFT.ViewModel.UserVMs
            {
                 MSD.AddModelError("Entity.IdentyCode", "該 身分證/居留證 已經報名過");
            }
+
+            if (!IsValidEmail(Entity.Email))
+            {
+                MSD.AddModelError("Entity.Email", "Email 格式不正確");
+            }
            base.Validate();
         }
 
@@ -48,6 +53,19 @@ namespace GDesign2022NFT.ViewModel.UserVMs
         public override void DoDelete()
         {
             base.DoDelete();
+        }
+
+        private bool IsValidEmail(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }

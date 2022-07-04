@@ -34,6 +34,8 @@ namespace GDesign2022NFT.Controllers
         public ActionResult Index()
         {
             var vm = Wtm.CreateVM<PicturesListVM>();
+            //var temp = System.Security.Principal.WindowsIdentity.GetCurrent();
+            var userItem = Wtm.LoginUserInfo;
             return PartialView(vm);
         }
 

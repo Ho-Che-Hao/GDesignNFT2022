@@ -46,11 +46,11 @@ namespace GDesign2022NFT.ViewModel.UserVMs
                     {
                         return "#FFE4B5";
                     }
-                }),
-                this.MakeGridHeader(x => x.SchoolName),
-                this.MakeGridHeader(x => x.SchoolDepartment),
+                }).SetSort(),
+                this.MakeGridHeader(x => x.SchoolName).SetSort(),
+                this.MakeGridHeader(x => x.SchoolDepartment).SetSort(),
                 //todo: SetSort 排序
-                this.MakeGridHeader(x => x.SchoolGrade).SetSort(),
+                this.MakeGridHeader(x => x.SchoolGrade),
                 this.MakeGridHeader(x => x.AvtivityStatus).SetForeGroundFunc((a)=>
                   {
                       if(a.AvtivityStatus == AvtivityStatus.NotAvtivity)
@@ -67,7 +67,7 @@ namespace GDesign2022NFT.ViewModel.UserVMs
 
                 //todo: 自定義欄位
                // this.MakeGridHeader(x=> "新增欄位").SetHeader("新標題").SetFormat((a,b)=> "789"),
-                this.MakeGridHeaderAction(width: 200)
+               this.MakeGridHeaderAction(width: 200)
             };
         }
 

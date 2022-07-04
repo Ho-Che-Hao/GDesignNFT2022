@@ -166,7 +166,7 @@
     <value>列表展示</value>
   </data>
   <data name="Codegen.IsSearcherField" xml:space="preserve">
-    <value>搜索条件</value>
+    <value>搜尋條件</value>
   </data>
   <data name="Codegen.LinkedType" xml:space="preserve">
     <value>关联类型</value>
@@ -214,7 +214,7 @@
     <value>密码修改成功，下次请使用新密码登录。</value>
   </data>
   <data name="Login.InputPassword" xml:space="preserve">
-    <value>请输入密码</value>
+    <value>请输入密碼</value>
   </data>
   <data name="Login.InputTenant" xml:space="preserve">
     <value>请输入租户号</value>
@@ -226,13 +226,13 @@
     <value>请输入验证码</value>
   </data>
   <data name="Login.ItcodeDuplicate" xml:space="preserve">
-    <value>账号重复</value>
+    <value>帳號重複</value>
   </data>
   <data name="Login.Login" xml:space="preserve">
-    <value>登 录</value>
+    <value>登入</value>
   </data>
   <data name="Login.LogOut" xml:space="preserve">
-    <value>退出</value>
+    <value>登出</value>
   </data>
   <data name="Login.NewPassword" xml:space="preserve">
     <value>新密码</value>
@@ -241,25 +241,25 @@
     <value>新密码</value>
   </data>
   <data name="Login.OldPassword" xml:space="preserve">
-    <value>当前密码</value>
+    <value>當前密码</value>
   </data>
   <data name="Login.OldPasswrodWrong" xml:space="preserve">
-    <value>当前密码错误</value>
+    <value>當前密码錯誤</value>
   </data>
   <data name="Login.PasswordNotSame" xml:space="preserve">
     <value>两次新密码输入不一致</value>
   </data>
   <data name="Login.Register" xml:space="preserve">
-    <value>注 册</value>
+    <value>筆</value>
   </data>
   <data name="Login.RegTitle" xml:space="preserve">
-    <value>新用户注册</value>
+    <value>新用戶註冊</value>
   </data>
   <data name="Login.RememberMe" xml:space="preserve">
-    <value>记住我</value>
+    <value>記住登入資訊</value>
   </data>
   <data name="Login.ValidationFail" xml:space="preserve">
-    <value>验证码不正确</value>
+    <value>驗證碼輸入錯誤</value>
   </data>
   <data name="MenuKey.ActionLog" xml:space="preserve">
     <value>日志</value>
@@ -268,7 +268,7 @@
     <value>内置Api</value>
   </data>
   <data name="MenuKey.DataPrivilege" xml:space="preserve">
-    <value>数据权限</value>
+    <value>資料權限</value>
   </data>
   <data name="MenuKey.FrameworkTenant" xml:space="preserve">
     <value>租户管理</value>
@@ -277,7 +277,7 @@
     <value>用户组管理</value>
   </data>
   <data name="MenuKey.Login" xml:space="preserve">
-    <value>登录</value>
+    <value>登陸</value>
   </data>
   <data name="MenuKey.MenuMangement" xml:space="preserve">
     <value>菜单管理</value>
@@ -298,7 +298,7 @@
     <value>注册成功</value>
   </data>
   <data name="Sys.Account" xml:space="preserve">
-    <value>账号</value>
+    <value>帳號</value>
   </data>
   <data name="Sys.Admin" xml:space="preserve">
     <value>超级管理员</value>
@@ -346,7 +346,7 @@
     <value>勾选导出</value>
   </data>
   <data name="Sys.Close" xml:space="preserve">
-    <value>关闭</value>
+    <value>關閉</value>
   </data>
   <data name="Sys.CloseAllTags" xml:space="preserve">
     <value>关闭全部标签页</value>
@@ -418,7 +418,7 @@
     <value>修改失败</value>
   </data>
   <data name="Sys.Enable" xml:space="preserve">
-    <value>启用</value>
+    <value>啟動</value>
   </data>
   <data name="Sys.Error" xml:space="preserve">
     <value>错误</value>
@@ -430,16 +430,16 @@
     <value>错误信息</value>
   </data>
   <data name="Sys.Export" xml:space="preserve">
-    <value>导出</value>
+    <value>匯出</value>
   </data>
   <data name="Sys.ExportByIds" xml:space="preserve">
     <value>勾选导出</value>
   </data>
   <data name="Sys.ExportExcel" xml:space="preserve">
-    <value>导出Excel</value>
+    <value>匯出Excel</value>
   </data>
   <data name="Sys.FailedLoadData" xml:space="preserve">
-    <value>获取数据失败</value>
+    <value>取得資料失败</value>
   </data>
   <data name="Sys.Female" xml:space="preserve">
     <value>女</value>
@@ -448,16 +448,16 @@
     <value>没有找到文件</value>
   </data>
   <data name="Sys.ForSelect" xml:space="preserve">
-    <value>待选择</value>
+    <value>請選擇</value>
   </data>
   <data name="Sys.Get" xml:space="preserve">
-    <value>获取</value>
+    <value>取得</value>
   </data>
   <data name="Sys.Goto" xml:space="preserve">
     <value>到第</value>
   </data>
   <data name="Sys.GotoButtonText" xml:space="preserve">
-    <value>确定</value>
+    <value>確定</value>
   </data>
   <data name="Sys.Have" xml:space="preserve">
     <value>有</value>
@@ -469,7 +469,7 @@
     <value>首页</value>
   </data>
   <data name="Sys.Import" xml:space="preserve">
-    <value>导入</value>
+    <value>匯入</value>
   </data>
   <data name="Sys.ImportError" xml:space="preserve">
     <value>导入时发生错误</value>
@@ -481,16 +481,16 @@
     <value>将编辑好的模板上传</value>
   </data>
   <data name="Sys.ImportStep3" xml:space="preserve">
-    <value>导入失败，请下载错误文件查看详情</value>
+    <value>匯入失败，请下载错误文件確認內容</value>
   </data>
   <data name="Sys.ImportSuccess" xml:space="preserve">
-    <value>成功导入{0}行数据</value>
+    <value>成功匯入{0}筆資料</value>
   </data>
   <data name="Sys.Info" xml:space="preserve">
     <value>信息</value>
   </data>
   <data name="Sys.Invalid" xml:space="preserve">
-    <value>无效</value>
+    <value>無效</value>
   </data>
   <data name="Sys.Layout" xml:space="preserve">
     <value>布局</value>
@@ -502,10 +502,10 @@
     <value>左右结构</value>
   </data>
   <data name="Sys.LoadFailed" xml:space="preserve">
-    <value>加载失败</value>
+    <value>載入失敗</value>
   </data>
   <data name="Sys.LoginFailed" xml:space="preserve">
-    <value>登录失败</value>
+    <value>登陸失敗</value>
   </data>
   <data name="Sys.MainPage" xml:space="preserve">
     <value>主页面</value>
@@ -517,19 +517,19 @@
     <value>更多设置</value>
   </data>
   <data name="Sys.NeedLogin" xml:space="preserve">
-    <value>您没有登录或登录已过期，请重新登陆</value>
+    <value>您沒有登錄或者登陸已經過期，請重新登錄</value>
   </data>
   <data name="Sys.No" xml:space="preserve">
     <value>否</value>
   </data>
   <data name="Sys.NoData" xml:space="preserve">
-    <value>无数据</value>
+    <value>無資料</value>
   </data>
   <data name="Sys.NoMatchingData" xml:space="preserve">
-    <value>无匹配数据</value>
+    <value>無匹配資料</value>
   </data>
   <data name="Sys.None" xml:space="preserve">
-    <value>无</value>
+    <value>無</value>
   </data>
   <data name="Sys.NoPrivilege" xml:space="preserve">
     <value>您没有访问该页面的权限</value>
@@ -571,31 +571,31 @@
     <value>请输入文本</value>
   </data>
   <data name="Sys.PleaseSelect" xml:space="preserve">
-    <value>请选择</value>
+    <value>請選擇</value>
   </data>
   <data name="Sys.PleaseUploadTemplate" xml:space="preserve">
     <value>请上传模板文件</value>
   </data>
   <data name="Sys.Preview" xml:space="preserve">
-    <value>预览</value>
+    <value>預覽</value>
   </data>
   <data name="Sys.Print" xml:space="preserve">
-    <value>打印</value>
+    <value>列印</value>
   </data>
   <data name="Sys.Record" xml:space="preserve">
-    <value>条</value>
+    <value>筆</value>
   </data>
   <data name="Sys.RecordsPerPage" xml:space="preserve">
-    <value>条/页</value>
+    <value>筆/頁</value>
   </data>
   <data name="Sys.Refresh" xml:space="preserve">
-    <value>刷新</value>
+    <value>重整</value>
   </data>
   <data name="Sys.Reset" xml:space="preserve">
     <value>重置</value>
   </data>
   <data name="Sys.Rollback" xml:space="preserve">
-    <value>已回滚</value>
+    <value>已回復</value>
   </data>
   <data name="Sys.RowIndex" xml:space="preserve">
     <value>行号</value>
@@ -625,10 +625,10 @@
     <value>单页面</value>
   </data>
   <data name="Sys.Submit" xml:space="preserve">
-    <value>提交</value>
+    <value>儲存</value>
   </data>
   <data name="Sys.SubmitFailed" xml:space="preserve">
-    <value>提交失败</value>
+    <value>儲存失败</value>
   </data>
   <data name="Sys.Tabs" xml:space="preserve">
     <value>多标签</value>
@@ -673,10 +673,10 @@
     <value>{0}格式错误</value>
   </data>
   <data name="Sys.{0}ValueNotExist" xml:space="preserve">
-    <value>{0}输入的值在数据库中不存在</value>
+    <value>{0}输入的值在資料库中不存在</value>
   </data>
   <data name="Sys.{0}ValueTypeNotAllowed" xml:space="preserve">
-    <value>{0}输入的值不在允许的数据类型范围内</value>
+    <value>{0}输入的值不在允许的資料類型範圍內</value>
   </data>
   <data name="Validate.{0}formaterror" xml:space="preserve">
     <value>{0}格式错误</value>
@@ -700,7 +700,7 @@
     <value>{0}最多输入{1}个字符</value>
   </data>
   <data name="_Admin.Account" xml:space="preserve">
-    <value>账号</value>
+    <value>帳號</value>
   </data>
   <data name="_Admin.Action" xml:space="preserve">
     <value>动作</value>
@@ -721,7 +721,7 @@
     <value>地址</value>
   </data>
   <data name="_Admin.AllDp" xml:space="preserve">
-    <value>全部权限</value>
+    <value>全部權限</value>
   </data>
   <data name="_Admin.Allowed" xml:space="preserve">
     <value>允许</value>
@@ -751,10 +751,10 @@
     <value>类名</value>
   </data>
   <data name="_Admin.CreateBy" xml:space="preserve">
-    <value>创建人</value>
+    <value>創建者</value>
   </data>
   <data name="_Admin.CreateTime" xml:space="preserve">
-    <value>创建时间</value>
+    <value>創建時間</value>
   </data>
   <data name="_Admin.DataPrivilege" xml:space="preserve">
     <value>数据权限</value>
@@ -772,7 +772,7 @@
     <value>调试</value>
   </data>
   <data name="_Admin.DisplayOrder" xml:space="preserve">
-    <value>顺序</value>
+    <value>順序</value>
   </data>
   <data name="_Admin.Domain" xml:space="preserve">
     <value>域</value>
@@ -787,10 +787,10 @@
     <value>时长</value>
   </data>
   <data name="_Admin.Email" xml:space="preserve">
-    <value>邮箱</value>
+    <value>電子信箱</value>
   </data>
   <data name="_Admin.Exception" xml:space="preserve">
-    <value>异常</value>
+    <value>異常</value>
   </data>
   <data name="_Admin.FieldName" xml:space="preserve">
     <value>字段名称</value>
@@ -802,7 +802,7 @@
     <value>扩展名</value>
   </data>
   <data name="_Admin.FolderOnly" xml:space="preserve">
-    <value>目录</value>
+    <value>目錄</value>
   </data>
   <data name="_Admin.Gender" xml:space="preserve">
     <value>性别</value>
@@ -856,7 +856,7 @@
     <value>作业</value>
   </data>
   <data name="_Admin.Length" xml:space="preserve">
-    <value>长度</value>
+    <value>長度</value>
   </data>
   <data name="_Admin.LoginApi" xml:space="preserve">
     <value>账号操作Api</value>

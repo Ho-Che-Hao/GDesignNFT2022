@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BzUUpL8E8+dnoDrJReYTV1JIlNJYgbKli3GFN/I+czI=",
+  "Hash": "/VkYZ3RZXnFov/rfFdzHqKKxBX70RuihJtaQQ9ajaH4=",
   "Source": "GDesign2022NFT.Test",
   "BasePath": "_content/GDesign2022NFT.Test",
   "Mode": "Default",
@@ -386,6 +386,23 @@
       "OriginalItemSpec": "wwwroot\\images\\code.png"
     },
     {
+      "Identity": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\images\\favicon.ico",
+      "SourceId": "GDesign2022NFT",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\",
+      "BasePath": "_content/GDesign2022NFT",
+      "RelativePath": "images/favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\favicon.ico"
+    },
+    {
       "Identity": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\images\\icon-login01.png",
       "SourceId": "GDesign2022NFT",
       "SourceType": "Project",
@@ -488,6 +505,23 @@
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
+      "Identity": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\images\\logogDdesign.png",
+      "SourceId": "GDesign2022NFT",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\",
+      "BasePath": "_content/GDesign2022NFT",
+      "RelativePath": "images/logogDdesign.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logogDdesign.png"
+    },
+    {
       "Identity": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\images\\slogen.png",
       "SourceId": "GDesign2022NFT",
       "SourceType": "Project",
@@ -520,6 +554,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\slogen2.png"
+    },
+    {
+      "Identity": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\jquery.cookie.js",
+      "SourceId": "GDesign2022NFT",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\",
+      "BasePath": "_content/GDesign2022NFT",
+      "RelativePath": "jquery.cookie.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\jquery.cookie.js"
+    },
+    {
+      "Identity": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\jquery.min.js",
+      "SourceId": "GDesign2022NFT",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\",
+      "BasePath": "_content/GDesign2022NFT",
+      "RelativePath": "jquery.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\jquery.min.js"
     },
     {
       "Identity": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\wwwroot\\layui\\css\\layui.css",

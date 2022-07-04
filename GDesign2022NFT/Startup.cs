@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Core.Extensions;
@@ -68,11 +70,29 @@ namespace GDesign2022NFT
 
             app.UseExceptionHandler(configs.CurrentValue.ErrorHandler);
             app.UseStaticFiles();
+            
+
             app.UseWtmStaticFiles();
             app.UseRouting();
             app.UseWtmMultiLanguages();
             app.UseWtmCrossDomain();
             app.UseAuthentication();
+
+            //todo: 虛擬目錄 權限
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider("E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\uploads\\picture"),
+                RequestPath = "/UploadPicture",
+                OnPrepareResponse = (context) =>
+                {
+                    if (!context.Context.User.Identity.IsAuthenticated /*&& context.Context.Request.Path.StartsWithSegments("/excelfiles")*/)
+                    {
+                        throw new Exception("Not authenticated");
+                    }
+                }
+
+            });
+
             app.UseAuthorization();
             app.UseSession();
             app.UseWtmSwagger();

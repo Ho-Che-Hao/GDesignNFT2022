@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using GDesign2022NFT.Model;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Core.Auth;
@@ -19,10 +21,20 @@ namespace GDesign2022NFT.Controllers
 {
     public class HomeController : BaseController
     {
+        private readonly IConfiguration _configuration;
+        public HomeController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         [AllRights]
         public IActionResult Index()
         {
-            ViewData["title"] = "WTM";
+            if(_configuration["IsQuickDebug"] == "False")
+            {
+                //return Redirect($"/#/User");
+            }
+            ViewData["title"] = "奇想設計大賽 NFT";
             return View();
         }
 
@@ -115,6 +127,23 @@ namespace GDesign2022NFT.Controllers
                     });
                 }
             }
+            var rv = data.ToChartData();
+            return Json(rv);
+        }
+
+        public IActionResult GetUserChart()
+        {
+            var users = DC.Set<User>().Select(x => new {
+                Date = (x.CreateTime ?? DateTime.Now).ToString("MMdd"),
+                Id = x.ID
+            }).ToList();
+            var data = users.GroupBy(x => x.Date).OrderBy(x => x.Key).Select(x => new ChartData()
+            {
+                Category = "報名者",
+                Series = "報名者",
+                Value = Convert.ToDouble(x.Count()),
+                ValueX = Convert.ToDouble(x.Key),
+            }).ToList();
             var rv = data.ToChartData();
             return Json(rv);
         }

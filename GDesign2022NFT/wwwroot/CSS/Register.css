@@ -6,10 +6,10 @@ div.hintword {
 }
 tr.formItemGroup {
     margin:20px 0;
-    font-size: 150%;
+    font-size: 20px;
 }
     tr.formItemGroup td {
-        padding: 10px; 0;
+        padding: 10px 0;
     }
     tr.formItemGroup input[type='text'] {
         display: block;
@@ -26,7 +26,7 @@ tr.formItemGroup {
         box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
         -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
         transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-        padding: 15px;
+        padding: 15px 3px;
     }
 
 button#BtnSave {
@@ -37,4 +37,51 @@ button#BtnSave {
     color: #f8f8f8;
     font-size: 125%;
     cursor:pointer;
+}
+#form_data{
+	width: 100%;
+    max-width: 400px;
+	margin: 0px auto;
+}
+
+#form_data table{
+	width:100%;
+	margin-top:15px;
+}
+
+#form_data table tr:nth-child(even){
+	background-color: #F5F3F2;
+}
+#form_data table tr:nth-child(odd){
+	background-color: #FDFCFB;
+}
+
+#form_data table tr.formItemGroup td:nth-child(1){
+	    padding-left: 25px;
+}
+
+#BtnSave{
+	margin: 0px auto;
+	display: block;
+	margin-top:15px;
+}
+
+span.must_write{
+	color:red;
+}
+.step_title{
+	    font-size: 20px;
+}
+
+#infoidenty{
+	text-align: center;
+	margin-top:15px;
+}
+
+
+@media (max-width:600px) {
+    #form_data {
+        max-width: initial;
+		width:95%;
+  }
 }
