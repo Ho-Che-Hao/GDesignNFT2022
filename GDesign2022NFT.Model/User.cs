@@ -51,7 +51,7 @@ namespace GDesign2022NFT.Model
         [Display(Name = "信箱驗證狀況")]
         public AvtivityStatus AvtivityStatus { set; get; }
 
-        [Required(ErrorMessage = "代號不可為 Null")]
+        //[Required(ErrorMessage = "代號不可為 Null")]
         public string Md5Code { set; get; }
     }
 

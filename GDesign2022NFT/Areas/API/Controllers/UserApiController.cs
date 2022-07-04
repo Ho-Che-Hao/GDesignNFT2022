@@ -7,7 +7,8 @@ using WalkingTec.Mvvm.Core.Extensions;
 using WalkingTec.Mvvm.Mvc;
 using GDesign2022NFT.ViewModel.API.UserVMs;
 using GDesign2022NFT.Model;
-
+using System.Text;
+using System.Security.Cryptography;
 
 namespace GDesign2022NFT.Controllers
 {
@@ -44,6 +45,7 @@ namespace GDesign2022NFT.Controllers
 
         [ActionDescription("Sys.Create")]
         [HttpPost("Add")]
+        [Public]
         public IActionResult Add(UserApiVM vm)
         {
             if (!ModelState.IsValid)
@@ -52,6 +54,21 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
+                var md5 = "";
+                var privatekey = "GDesignNFTVote";
+                using (var cryptoMD5 = MD5.Create())
+                {
+
+                    //取得雜湊值位元組陣列
+                    var hash = cryptoMD5.ComputeHash(Encoding.UTF8.GetBytes(String.Format("{0}{1}", privatekey, vm.Entity.Email)));
+
+                    //取得 MD5
+                    md5 = BitConverter.ToString(hash)
+                        .Replace("-", string.Empty)
+                        .ToUpper();
+                }
+                vm.Entity.Md5Code = md5;
+                vm.Entity.AvtivityStatus = AvtivityStatus.NotAvtivity;
                 vm.DoAdd();
                 if (!ModelState.IsValid)
                 {

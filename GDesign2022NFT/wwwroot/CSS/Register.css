@@ -1,0 +1,40 @@
+﻿body {
+}
+
+div.hintword {
+    color:red;
+}
+tr.formItemGroup {
+    margin:20px 0;
+    font-size: 150%;
+}
+    tr.formItemGroup td {
+        padding: 10px; 0;
+    }
+    tr.formItemGroup input[type='text'] {
+        display: block;
+        width: 100%;
+        height: 20px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #555;
+        background-color: #fff;
+        border: 1px solid #b3b3b3;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        padding: 15px;
+    }
+
+button#BtnSave {
+    min-width: 120px;
+    text-align: center;
+    background-color: #2a9cd3;
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #f8f8f8;
+    font-size: 125%;
+    cursor:pointer;
+}

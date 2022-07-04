@@ -21,6 +21,20 @@ namespace GDesign2022NFT.ViewModel.UserVMs
         {
         }
 
+        public override void Validate()
+        {
+           var item =  DC.Set<User>().FirstOrDefault(x => (x.Email.ToLower() == Entity.Email.ToLower()) || (x.IdentyCode.ToLower() == Entity.IdentyCode.ToLower()));
+           if (item.Email.ToLower().Equals(Entity.Email.ToLower()))
+           {
+                MSD.AddModelError("Entity.Email","Email 已經報名過");
+           }
+           if (item.IdentyCode.ToLower().Equals(Entity.IdentyCode.ToLower()))
+           {
+                MSD.AddModelError("Entity.IdentyCode", "該 身分證/居留證 已經報名過");
+           }
+           base.Validate();
+        }
+
         public override void DoAdd()
         {           
             base.DoAdd();

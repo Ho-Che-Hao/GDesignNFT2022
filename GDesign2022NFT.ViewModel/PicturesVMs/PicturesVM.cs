@@ -98,8 +98,9 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
             return result;
         }
 
+
         //todo : 正確放置位置?
-        private string GetServerMappath(string input)
+        public string GetServerMappath(string input)
         {
             //string webRootPath = "_hostingEnvironment.ContentRootPath";
             string webRootPath = "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\";
