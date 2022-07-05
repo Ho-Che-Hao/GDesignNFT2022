@@ -13,7 +13,7 @@ using GDesign2022NFT.DataAccess;
 
 namespace GDesign2022NFT.Test
 {
-    [TestClass]
+    /*[TestClass]
     public class MultiplePicturesControllerTest
     {
         private MultiplePicturesController _controller;
@@ -232,5 +232,5 @@ namespace GDesign2022NFT.Test
         }
 
 
-    }
+    }*/
 }

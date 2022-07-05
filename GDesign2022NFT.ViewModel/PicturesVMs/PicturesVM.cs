@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 using WalkingTec.Mvvm.Core;
-using WalkingTec.Mvvm.Core.Extensions;
 using GDesign2022NFT.Model;
-using System.Security.Cryptography;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using GIGABYTE.Utility.Utility;
+//using Microsoft.AspNetCore.Hosting.Internal;
+
+
 
 namespace GDesign2022NFT.ViewModel.PicturesVMs
 {
     public partial class PicturesVM : BaseCRUDVM<Pictures>
     {
         public string Message { set; get; }
-        public PicturesVM()
-        {
-            
-        }
+
 
         //執行順序
         // 一般 :  new PicturesVM => InitVM
@@ -25,15 +23,9 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
         public override void Validate()
         {
             //todo: 驗證更複雜的資料
-            var itemMd5 = GetImageMd5(Entity.PhotoId);
-            var pictureItems = DC.Set<Pictures>().FirstOrDefault(x => x.Md5Code == itemMd5 && x.IsValid && x.ID != Entity.ID);
-            if (pictureItems != null)
+            if (Entity.Photo == null)
             {
-                MSD.AddModelError("Entity.PhotoId", "圖片已經上傳過");
-            }
-            if (itemMd5 == "")
-            {
-                MSD.AddModelError("Entity.PhotoId", "請上傳圖片");
+                //MSD.AddModelError("Entity.PhotoId", "請上傳圖片");
             }
             base.Validate();
         }
@@ -69,71 +61,33 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
             base.DoEdit(updateAllFields);
         }
 
+        public void DoEditFilterSameFile(IHostingEnvironment hostingEnvironment,bool updateAllFields = false)
+        {
+            var picture = DC.Set<FileAttachment>().FirstOrDefault(x => x.ID == Entity.PhotoId);
+            if (picture != null)
+            {
+                var itemPath = Path.Combine(hostingEnvironment.ContentRootPath, picture.Path);
+                var photoByte = System.IO.File.ReadAllBytes(itemPath);
+                var md5 = MD5Convert.GetMd5String(photoByte);
+                var pictureItems = DC.Set<Pictures>().FirstOrDefault(x => x.Md5Code == md5 && x.IsValid && x.ID != Entity.ID);
+                if (pictureItems != null)
+                {
+                    MSD.AddModelError("Entity.PhotoId", "圖片已經上傳過");
+                }
+                else
+                {
+                    Entity.SetPropertyValue("Md5Code", md5);
+                    base.DoEdit(updateAllFields);
+                }
+            }
+           
+        }
+
         public override void DoDelete()
         {
             base.DoDelete();
         }
 
-        public string GetImageMd5(Guid photoId)
-        {
-            string result = "";
-            var picture = DC.Set<FileAttachment>().FirstOrDefault(x => x.ID == photoId);
-            if (picture != null)
-            {
-                var itemPath = GetServerMappath(picture.Path);
-                var photoByte = System.IO.File.ReadAllBytes(itemPath);
-                using (var cryptoMD5 = MD5.Create())
-                {
-
-                    //取得雜湊值位元組陣列
-                    var hash = cryptoMD5.ComputeHash(photoByte);
-
-                    //取得 MD5
-                    var md5 = BitConverter.ToString(hash)
-                        .Replace("-", string.Empty)
-                        .ToUpper();
-                    result = md5;
-                }
-            }
-            return result;
-        }
-
-
-        //todo : 正確放置位置?
-        public string GetServerMappath(string input)
-        {
-            //string webRootPath = "_hostingEnvironment.ContentRootPath";
-            string webRootPath = "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\";
-            var inputArr = input.Replace("/", "\\").Split("\\");
-            var result = webRootPath;
-            foreach (var item in inputArr)
-            {
-
-                if (!string.IsNullOrEmpty(item))
-                {
-                    //確保不會是空白
-                    var itemPath = item.Trim();
-                    switch (itemPath)
-                    {
-                        case ".":
-                            //不動作 代表當下層
-                            break;
-                        case "..":
-                            var webRootPathArr = result.Split("\\");
-                            var webRootPathArrLength = webRootPathArr.Length;
-                            if (webRootPathArrLength > 1)
-                            {
-                                result = string.Join("//", webRootPathArr.Take(webRootPathArrLength - 1));
-                            }
-                            //代表上一層，須將環境當下路徑去除尾段
-                            break;
-                        default:
-                            result = $"{result}\\{itemPath}";
-                            break;
-                    }
-                }
-            }
-            return result;
-        }
+        
     }
 }

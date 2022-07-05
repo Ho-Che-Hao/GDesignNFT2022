@@ -9,6 +9,8 @@ using GDesign2022NFT.ViewModel.API.UserVMs;
 using GDesign2022NFT.Model;
 using System.Text;
 using System.Security.Cryptography;
+using GIGABYTE.Utility.Utility;
+using GIGABYTE.Utility;
 
 namespace GDesign2022NFT.Controllers
 {
@@ -17,8 +19,13 @@ namespace GDesign2022NFT.Controllers
     [ActionDescription("使用者報名API")]
     [ApiController]
     [Route("api/User")]
-	public partial class UserApiController : BaseApiController
+    public partial class UserApiController : BaseApiController
     {
+        private readonly ISmtpMail _smtpMail;
+        public UserApiController(ISmtpMail smtpMail)
+        {
+            _smtpMail = smtpMail;
+        }
         [ActionDescription("Sys.Search")]
         [HttpPost("Search")]
 		public IActionResult Search(UserApiSearcher searcher)
@@ -54,21 +61,9 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
-                var md5 = "";
-                var privatekey = "GDesignNFTVote";
-                using (var cryptoMD5 = MD5.Create())
-                {
-
-                    //取得雜湊值位元組陣列
-                    var hash = cryptoMD5.ComputeHash(Encoding.UTF8.GetBytes(String.Format("{0}{1}", privatekey, vm.Entity.Email)));
-
-                    //取得 MD5
-                    md5 = BitConverter.ToString(hash)
-                        .Replace("-", string.Empty)
-                        .ToUpper();
-                }
-                vm.Entity.Md5Code = md5;
-                vm.Entity.AvtivityStatus = AvtivityStatus.NotAvtivity;
+                var md5 = MD5Convert.GetMd5String("GDesignNFTVote", vm.Entity.Email);
+                vm.Entity.SetPropertyValue("Md5Code", md5);
+                vm.Entity.SetPropertyValue("AvtivityStatus", AvtivityStatus.NotAvtivity);
                 vm.DoAdd();
                 if (!ModelState.IsValid)
                 {
@@ -76,6 +71,13 @@ namespace GDesign2022NFT.Controllers
                 }
                 else
                 {
+                    var url = $"http://localhost:8226/LoadImage/Index/{vm.Entity.Md5Code}";
+                    _smtpMail.SendMail(new GIGABYTE.Utility.Dto.SmtpMailInputDto()
+                    {
+                        ToMails = new List<string>() { vm.Entity.Email },
+                        Subject = "奇想 NFT",
+                        BodyContent = $"<img src='{url}'><br/>若無法觀看圖片請<a href='{url}' target='_blank'>點此</a>",                        
+                    });
                     return Ok(vm.Entity);
                 }
             }

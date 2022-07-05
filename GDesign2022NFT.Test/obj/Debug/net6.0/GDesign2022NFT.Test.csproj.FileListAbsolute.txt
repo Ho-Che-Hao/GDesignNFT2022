@@ -508,10 +508,12 @@ E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GD
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GDesign2022NFT.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GDesign2022NFT.Model.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GDesign2022NFT.ViewModel.dll
+E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GIGABYTE.Utility.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GDesign2022NFT.pdb
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GDesign2022NFT.DataAccess.pdb
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GDesign2022NFT.Model.pdb
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GDesign2022NFT.ViewModel.pdb
+E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\GIGABYTE.Utility.pdb
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\en\GDesign2022NFT.resources.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\bin\Debug\net6.0\zh\GDesign2022NFT.resources.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.Test\obj\Debug\net6.0\GDesign2022NFT.Test.csproj.AssemblyReference.cache

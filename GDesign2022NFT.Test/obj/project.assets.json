@@ -310,6 +310,30 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Diagnostics.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Hosting/2.2.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http": "2.2.0",
+          "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
+          "Microsoft.Extensions.Configuration": "2.2.0",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "2.2.4",
+          "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection": "2.2.0",
+          "Microsoft.Extensions.FileProviders.Physical": "2.2.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Logging": "2.2.0",
+          "Microsoft.Extensions.Options": "2.2.0",
+          "System.Diagnostics.DiagnosticSource": "4.5.1",
+          "System.Reflection.Metadata": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Hosting.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Hosting.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -3973,6 +3997,7 @@
           "GDesign2022NFT.DataAccess": "1.0.0",
           "GDesign2022NFT.Model": "1.0.0",
           "GDesign2022NFT.ViewModel": "1.0.0",
+          "GIGABYTE.Utility": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.6",
           "WalkingTec.Mvvm.Mvc": "6.2.5",
           "WalkingTec.Mvvm.TagHelpers.LayUI": "6.2.5"
@@ -4017,13 +4042,28 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GDesign2022NFT.Model": "1.0.0"
+          "GDesign2022NFT.Model": "1.0.0",
+          "GIGABYTE.Utility": "1.0.0",
+          "Microsoft.AspNetCore.Hosting": "2.2.7"
         },
         "compile": {
           "bin/placeholder/GDesign2022NFT.ViewModel.dll": {}
         },
         "runtime": {
           "bin/placeholder/GDesign2022NFT.ViewModel.dll": {}
+        }
+      },
+      "GIGABYTE.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0"
+        },
+        "compile": {
+          "bin/placeholder/GIGABYTE.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GIGABYTE.Utility.dll": {}
         }
       }
     }
@@ -4365,6 +4405,19 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Diagnostics.Abstractions.xml",
         "microsoft.aspnetcore.diagnostics.abstractions.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.diagnostics.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Hosting/2.2.7": {
+      "sha512": "O0ZBE53Fa9bVGXykDzvgMFW0Pe1QyPPFg1pazN8l3RUFSWBsDJ9/iD1LHXgADA8+ZD3R/1zkvraPa9SZdievxQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.hosting/2.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Hosting.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Hosting.xml",
+        "microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",
+        "microsoft.aspnetcore.hosting.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
@@ -11567,6 +11620,11 @@
       "type": "project",
       "path": "../GDesign2022NFT.ViewModel/GDesign2022NFT.ViewModel.csproj",
       "msbuildProject": "../GDesign2022NFT.ViewModel/GDesign2022NFT.ViewModel.csproj"
+    },
+    "GIGABYTE.Utility/1.0.0": {
+      "type": "project",
+      "path": "../GIGABYTE.Utility/GIGABYTE.Utility.csproj",
+      "msbuildProject": "../GIGABYTE.Utility/GIGABYTE.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {

@@ -172,3 +172,5 @@ E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.ViewModel\obj\Debug\net6
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.ViewModel\obj\Debug\net6.0\refint\GDesign2022NFT.ViewModel.dll
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.ViewModel\obj\Debug\net6.0\GDesign2022NFT.ViewModel.pdb
 E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.ViewModel\obj\Debug\net6.0\ref\GDesign2022NFT.ViewModel.dll
+E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.ViewModel\bin\Debug\net6.0\GIGABYTE.Utility.dll
+E:\WebsiteProgram\2022NFT\GDesign2022NFT\GDesign2022NFT.ViewModel\bin\Debug\net6.0\GIGABYTE.Utility.pdb

@@ -66,7 +66,7 @@
           "Microsoft.AspNetCore": "6.0.0.0",
           "Microsoft.AspNetCore.HostFiltering": "6.0.0.0",
           "Microsoft.AspNetCore.Hosting.Abstractions.Reference": "6.0.0.0",
-          "Microsoft.AspNetCore.Hosting": "6.0.0.0",
+          "Microsoft.AspNetCore.Hosting.Reference": "6.0.0.0",
           "Microsoft.AspNetCore.Hosting.Server.Abstractions.Reference": "6.0.0.0",
           "Microsoft.AspNetCore.Html.Abstractions.Reference": "6.0.0.0",
           "Microsoft.AspNetCore.Http.Abstractions.Reference": "6.0.0.0",
@@ -552,6 +552,23 @@
       },
       "Microsoft.AspNetCore.DataProtection.Abstractions/2.2.0": {},
       "Microsoft.AspNetCore.Diagnostics.Abstractions/2.2.0": {},
+      "Microsoft.AspNetCore.Hosting/2.2.7": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http": "2.2.0",
+          "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
+          "Microsoft.Extensions.Configuration": "6.0.0",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "6.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "6.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "System.Diagnostics.DiagnosticSource": "6.0.0",
+          "System.Reflection.Metadata": "5.0.0"
+        }
+      },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "2.2.0",
@@ -3152,6 +3169,7 @@
           "GDesign2022NFT.DataAccess": "1.0.0",
           "GDesign2022NFT.Model": "1.0.0",
           "GDesign2022NFT.ViewModel": "1.0.0",
+          "GIGABYTE.Utility": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.6",
           "WalkingTec.Mvvm.Mvc": "6.2.5",
           "WalkingTec.Mvvm.TagHelpers.LayUI": "6.2.5"
@@ -3195,13 +3213,26 @@
       },
       "GDesign2022NFT.ViewModel/1.0.0": {
         "dependencies": {
-          "GDesign2022NFT.Model": "1.0.0"
+          "GDesign2022NFT.Model": "1.0.0",
+          "GIGABYTE.Utility": "1.0.0",
+          "Microsoft.AspNetCore.Hosting": "2.2.7"
         },
         "runtime": {
           "GDesign2022NFT.ViewModel.dll": {}
         },
         "compile": {
           "GDesign2022NFT.ViewModel.dll": {}
+        }
+      },
+      "GIGABYTE.Utility/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "GIGABYTE.Utility.dll": {}
+        },
+        "compile": {
+          "GIGABYTE.Utility.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery.Reference/6.0.0.0": {
@@ -3366,7 +3397,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Hosting/6.0.0.0": {
+      "Microsoft.AspNetCore.Hosting.Reference/6.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Hosting.dll": {}
         },
@@ -5101,6 +5132,13 @@
       "path": "microsoft.aspnetcore.diagnostics.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.diagnostics.abstractions.2.2.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Hosting/2.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O0ZBE53Fa9bVGXykDzvgMFW0Pe1QyPPFg1pazN8l3RUFSWBsDJ9/iD1LHXgADA8+ZD3R/1zkvraPa9SZdievxQ==",
+      "path": "microsoft.aspnetcore.hosting/2.2.7",
+      "hashPath": "microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -6654,6 +6692,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "GIGABYTE.Utility/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Microsoft.AspNetCore.Antiforgery.Reference/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -6789,7 +6832,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Hosting/6.0.0.0": {
+    "Microsoft.AspNetCore.Hosting.Reference/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

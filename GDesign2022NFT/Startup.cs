@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using GDesign2022NFT.ViewModel.PicturesVMs;
+using GIGABYTE.Utility;
+using GIGABYTE.Utility.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -60,6 +63,16 @@ namespace GDesign2022NFT
             });
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            services.AddScoped<IFileRoot, FileRoot>();
+
+            services.AddScoped<ISmtpMail, SmtpMail>();
+
+            services.AddScoped<PictureTestVm, PictureTestVm>();
+
+            //services.AddScoped<PicturesVM, PicturesVM>();
+            //services.AddScoped<IHostingEnvironment, PicturesVM>();
+
 
         }
 

@@ -17,6 +17,7 @@ namespace GDesign2022NFT.Model
 
 
         public string Md5Code { set; get; }
+        [Display(Name = "圖片")]
         public List<MultiplePicturesUpload> Photos { get; set; }
     }
 
@@ -25,7 +26,9 @@ namespace GDesign2022NFT.Model
         public int MultiplePicturesId { get; set; }
         public MultiplePictures MultiplePictures { get; set; }
         //ISubFile定义的字段
+        [Display(Name = "圖片")]
         public Guid FileId { get; set; }
+        [Display(Name = "圖片")]
         public FileAttachment File { get; set; }
         public int Order { get; set; }
     }

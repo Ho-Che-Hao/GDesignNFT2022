@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OUZD09R28/z8ESZR01JfNKOHNr0ILit3d+l0/TZ75M+SN9CNXjrv/SoI9rhTe43B5flzbwGsOv/iySIkyCV6wQ==",
+  "dgSpecHash": "F+IGYAaYop3Y+NtV/I9hwJTl6tGs3EI2Tb8TA1WXJ9L2FnrI8Z+rBUlXfOmCL/GfO9bXHkfui68q7k8AcHCyiw==",
   "success": true,
   "projectFilePath": "E:\\WebsiteProgram\\2022NFT\\GDesign2022NFT\\GDesign2022NFT\\GDesign2022NFT.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\neal.ho\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",
     "C:\\Users\\neal.ho\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.abstractions\\2.2.0\\microsoft.aspnetcore.dataprotection.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\neal.ho\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.abstractions\\2.2.0\\microsoft.aspnetcore.diagnostics.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\neal.ho\\.nuget\\packages\\microsoft.aspnetcore.hosting\\2.2.7\\microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",
     "C:\\Users\\neal.ho\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\neal.ho\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\neal.ho\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

@@ -1,8 +1,10 @@
 ﻿using GDesign2022NFT.Model;
 using GDesign2022NFT.ViewModel.PicturesVMs;
 using GDesign2022NFT.ViewModel.UserVMs;
+using GIGABYTE.Utility.Utility;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
@@ -11,31 +13,37 @@ namespace GDesign2022NFT.Controllers
 {
     public partial class LoadImageController : BaseController
     {
+        private IFileRoot _fileRoot { set;get;}
+        public LoadImageController(IFileRoot fileRoot) {
+            _fileRoot = fileRoot;
+        }
+
         [HttpGet]
         [Public]
         public ActionResult Index(string id)
         {
+            //取得使用者資料
+            var vmUserData = Wtm.CreateVM<UserVM>();
+            vmUserData.SetUserVMByMd5(id);
+            return SendPictureView(vmUserData);
+        }
+
+        private ActionResult SendPictureView(UserVM vmUserData)
+        {
             var bytearray = new byte[0];
             var fileType = "";
 
-            //var vmUser = Wtm.CreateVM<UserVM>(x=>x.Entity.Md5Code == id);
-            var vmUser = DC.Set<User>().FirstOrDefault(x=> x.Md5Code == id);
-
-            if (vmUser != null)
+            //
+            if (vmUserData.Entity.ID == 0)
             {
-                var vm = Wtm.CreateVM<PicturesVM>();
-                vm.Entity.Photo = new FileAttachment();
-                var relationPicture = DC.Set<RelationUserPictures>().AsQueryable();
-                var Pictures = DC.Set<Pictures>().Where(x=>x.IsValid).AsQueryable();
-                var item = (from rel in relationPicture
-                            join img in Pictures
-                            on rel.PicturesId equals img.ID
-                            where rel.UsersId == vmUser.ID
-                            select new { Path = img.Photo.Path, PhotoId = img.ID , PhotoExt = img.Photo.FileExt }).FirstOrDefault();
-                if (item == null)
-                {
-                    //todo: 派發圖片
-                    var notUseImage = Pictures.Where(x => !relationPicture.Select(z => z.PicturesId).Contains(x.ID)).Select(x=> new {
+                return NotFound("錯誤頁面");
+            }
+
+            if (vmUserData.SendPicture == null)
+            {
+                //todo: 隨機派發圖片
+                var relationPictureIds = DC.Set<RelationUserPictures>().Select(x => x.PicturesId).AsQueryable();
+                var notUseImage = DC.Set<Pictures>().Where(x => x.IsValid && !relationPictureIds.Contains(x.ID)).Select(x=> new {
                         Path = x.Photo.Path,
                         FileExt = x.Photo.FileExt,
                         ID = x.ID
@@ -43,42 +51,25 @@ namespace GDesign2022NFT.Controllers
                     DC.AddEntity<RelationUserPictures>(new RelationUserPictures()
                     {
                         PicturesId = notUseImage.ID,
-                        UsersId = vmUser.ID
+                        UsersId = vmUserData.Entity.ID
                     });
-                    vm.Entity.Photo.Path = notUseImage.Path;
-                    vm.Entity.Photo.FileExt = notUseImage.FileExt;
-                    vmUser.AvtivityStatus = AvtivityStatus.Avtivity;
-                    DC.UpdateEntity<User>(vmUser);
-                   DC.SaveChanges();
-                }
-                else
-                {
-                    vm.Entity.Photo.Path = item.Path;
-                    vm.Entity.Photo.FileExt = item.PhotoExt;
-                }
-
-                //todo: 顯示圖片
-                
-                var path = vm.GetServerMappath(vm.Entity.Photo.Path);
-                if (System.IO.File.Exists(path))
-                {
-                    bytearray = System.IO.File.ReadAllBytes(path);
-                    fileType = $"image/{vm.Entity.Photo.FileExt.Replace(".", "").ToLower()}";
-                }
-                //var vmPicture = Wtm.CreateVM<PicturesVM>(context => context.Entity.Md5Code.Equals(id));
+                    //vm.Entity.Photo.Path = notUseImage.Path;
+                    //vm.Entity.Photo.FileExt = notUseImage.FileExt;
+                    vmUserData.Entity.AvtivityStatus = AvtivityStatus.Avtivity;
+                    vmUserData.DoEdit();
+                    //DC.UpdateEntity<User>(vmUser);
+                    DC.SaveChanges();
+                    vmUserData.DoReInit();
             }
-            /*var vm = Wtm.CreateVM<PicturesVM>(id);
-            var bytearray = new byte[0];
-            var fileType = "";
-            if (vm != null && vm.Entity.Photo != null)
+
+            //var vm = Wtm.CreateVM<PicturesVM>();
+            //var path = vm.GetServerMappath(vmUserData.SendPicture.PhotoPath);
+            var path = _fileRoot.ServerPath(vmUserData.SendPicture.PhotoPath);
+            if (System.IO.File.Exists(path))
             {
-                var path = vm.GetServerMappath(vm.Entity.Photo.Path);
-                if (System.IO.File.Exists(path))
-                {
-                    bytearray = System.IO.File.ReadAllBytes(path);
-                    fileType = $"image/{vm.Entity.Photo.FileExt.Replace(".", "").ToLower()}";
-                }
-            }*/
+                bytearray = System.IO.File.ReadAllBytes(path);
+                fileType = $"image/{vmUserData.SendPicture.PhotoExt.Replace(".", "").ToLower()}";
+            }
             return File(bytearray, fileType);
         }
     }

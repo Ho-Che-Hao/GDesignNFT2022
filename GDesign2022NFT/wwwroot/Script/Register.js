@@ -25,6 +25,7 @@ var Register = function () {
 			},
 			error: function (error) {
 				if (error.responseJSON && error.responseJSON.Form) {
+					window.issent = false;
 					VueForm.error = error.responseJSON.Form;
 				}
 			}

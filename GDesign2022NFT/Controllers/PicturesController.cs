@@ -20,21 +20,20 @@ namespace GDesign2022NFT.Controllers
     [ActionDescription("圖片編輯")]
     public partial class PicturesController : BaseController
     {
-        //private readonly IHostingEnvironment _hostingEnvironment;
-        private readonly EvniromentFunc _evniromentFunc;
-
-        public PicturesController(IHostingEnvironment hostingEnvironment)
+        public readonly PictureTestVm aa;
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public PicturesController(PictureTestVm _aa, IHostingEnvironment hostingEnvironment)
         {
-            //_hostingEnvironment = hostingEnvironment;
-            _evniromentFunc = new EvniromentFunc(hostingEnvironment);
+            aa = _aa;
+            _hostingEnvironment = hostingEnvironment;
         }
-
         #region Search
         [ActionDescription("Sys.Search")]
         public ActionResult Index()
         {
+
+            //aa.Test();
             var vm = Wtm.CreateVM<PicturesListVM>();
-            //var temp = System.Security.Principal.WindowsIdentity.GetCurrent();
             var userItem = Wtm.LoginUserInfo;
             return PartialView(vm);
         }
@@ -67,11 +66,18 @@ namespace GDesign2022NFT.Controllers
         [ActionDescription("Sys.Create")]
         public ActionResult Create()
         {
-            /*var vm = Wtm.CreateVM<PicturesVM>();
-            return PartialView(vm);
-            */
             //todo : 多組上傳
             var vm = Wtm.CreateVM<MultiplePicturesVM>();
+            vm.AutoFilterSame = false;
+            return PartialView("~/Views/MultiplePictures/Create.cshtml", vm);
+        }
+
+        [ActionDescription("Sys.Create")]
+        public ActionResult CreateAutoFilterSame()
+        {
+            //todo : 多組上傳
+            var vm = Wtm.CreateVM<MultiplePicturesVM>();
+            vm.AutoFilterSame = true;
             return PartialView("~/Views/MultiplePictures/Create.cshtml", vm);
         }
 
@@ -109,7 +115,7 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
-                vm.DoAdd();
+                vm.DoAddFilterSameFile(_hostingEnvironment);
                 if (!ModelState.IsValid)
                 {
                     vm.DoReInit();
@@ -117,22 +123,29 @@ namespace GDesign2022NFT.Controllers
                 }
                 else
                 {
-                    var allowMD5Items = vm.GetImageMd5(vm.Entity.Photos.Select(x => x.FileId).ToList());
-                    var allowMD5FileIds = allowMD5Items.Select(x => x.Key).ToList();
-                    var items = DC.Set<MultiplePicturesUpload>().Where(x => allowMD5FileIds.Contains(x.FileId)).ToList();
-                    foreach (var MD5item in allowMD5Items)
-                    {
-                        var item = items.FirstOrDefault(x => x.FileId.Equals(MD5item.Key));
-                        if (item != null)
-                        {
-                            var picture = Wtm.CreateVM<PicturesVM>();
-                            picture.Entity.Md5Code = MD5item.Value;
-                            picture.Entity.PhotoId = MD5item.Key;
-                            picture.DoAdd();
-                        }
-
-                    }
                     return FFResult().CloseDialog().RefreshGrid();
+                }
+            }
+        }
+        [HttpPost]
+        [ActionDescription("Sys.Create")]
+        public ActionResult CreateAutoFilterSame(MultiplePicturesVM vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView("~/Views/MultiplePictures/Create.cshtml", vm);
+            }
+            else
+            {
+                vm.DoAddFilterSameFile(_hostingEnvironment);
+                if (!ModelState.IsValid)
+                {
+                    vm.DoReInit();
+                    return PartialView("~/Views/MultiplePictures/Create.cshtml", vm);
+                }
+                else
+                {
+                    return FFResult().CloseDialog().RefreshGrid().Alert(Localizer["Sys.ImportSuccess", vm.UpdloadCount.ToString()]);
                 }
             }
         }
@@ -157,8 +170,7 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
-                vm.Entity.Md5Code = vm.GetImageMd5(vm.Entity.PhotoId);
-                vm.DoEdit();
+                vm.DoEditFilterSameFile(_hostingEnvironment);
                 if (!ModelState.IsValid)
                 {
                     vm.DoReInit();

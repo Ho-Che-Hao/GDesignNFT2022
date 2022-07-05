@@ -20,9 +20,12 @@ namespace GDesign2022NFT.Model
         //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         //[RegularExpression("^$", ErrorMessage = "圖片已經上傳過")]
         public string Md5Code { set; get; }
+        [Display(Name = "圖片")]
         public FileAttachment Photo { set; get; }
 
+        [Display(Name = "圖片")]
         public Guid PhotoId { set; get; }
+
     }
 
     public enum PicturesStatusEnum

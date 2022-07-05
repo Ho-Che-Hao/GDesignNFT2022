@@ -8,6 +8,7 @@ using GDesign2022NFT.ViewModel.MultiplePicturesVMs;
 using System.Linq;
 using GDesign2022NFT.Model;
 using GDesign2022NFT.ViewModel.PicturesVMs;
+using Microsoft.AspNetCore.Hosting;
 
 namespace GDesign2022NFT.Controllers
 {
@@ -15,6 +16,13 @@ namespace GDesign2022NFT.Controllers
     [ActionDescription("MultipleUploadPictures")]
     public partial class MultiplePicturesController : BaseController
     {
+        private readonly IHostingEnvironment _hostingEnvironment;
+
+        public MultiplePicturesController(IHostingEnvironment hostingEnvironment)
+        {
+            _hostingEnvironment = hostingEnvironment;
+        }
+
         #region Search
         [ActionDescription("Sys.Search")]
         public ActionResult Index()
@@ -59,7 +67,7 @@ namespace GDesign2022NFT.Controllers
             }
             else
             {
-                vm.DoAdd();
+                vm.DoAddFilterSameFile(_hostingEnvironment);
                 if (!ModelState.IsValid)
                 {
                     vm.DoReInit();
@@ -67,21 +75,6 @@ namespace GDesign2022NFT.Controllers
                 }
                 else
                 {
-                    var allowMD5Items = vm.GetImageMd5(vm.Entity.Photos.Select(x => x.FileId).ToList());
-                    var allowMD5FileIds = allowMD5Items.Select(x => x.Key).ToList();
-                    var items = DC.Set<MultiplePicturesUpload>().Where(x => allowMD5FileIds.Contains(x.FileId)).ToList();
-                    foreach (var MD5item in allowMD5Items)
-                    {
-                        var item = items.FirstOrDefault(x => x.FileId.Equals(MD5item.Key));
-                        if (item != null)
-                        {
-                            var picture = Wtm.CreateVM<PicturesVM>();
-                            picture.Entity.Md5Code = MD5item.Value;
-                            picture.Entity.PhotoId = MD5item.Key;
-                            picture.DoAdd();
-                        }
-                        
-                    }
                     return FFResult().CloseDialog().RefreshGrid();
                 }
             }

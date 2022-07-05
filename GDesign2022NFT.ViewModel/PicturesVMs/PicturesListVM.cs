@@ -23,6 +23,7 @@ namespace GDesign2022NFT.ViewModel.PicturesVMs
             {
                 //todo: 自行新增按鈕
                 //this.MakeAction("Pictures","Edit","名稱","彈跳名稱",GridActionParameterTypesEnum.NoId,"自定義",600).SetIconCls("layui-icon layui-icon-add-1").SetBindVisiableColName("PictureStatus"),
+                this.MakeAction("Pictures", "CreateAutoFilterSame", $"{Localizer["Sys.Create"]}(自動過濾重複圖片)","",GridActionParameterTypesEnum.NoId, dialogWidth: 800).SetButtonClass("ToolBarBtn"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Create, Localizer["Sys.Create"],"", dialogWidth: 800).SetButtonClass("ToolBarBtn"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Edit, Localizer["Sys.Edit"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),
                 this.MakeStandardAction("Pictures", GridActionStandardTypesEnum.Delete, Localizer["Sys.Delete"], "", dialogWidth: 800).SetBindVisiableColName("PictureStatus"),

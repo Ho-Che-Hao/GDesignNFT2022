@@ -13,7 +13,7 @@ using GDesign2022NFT.DataAccess;
 
 namespace GDesign2022NFT.Test
 {
-    [TestClass]
+    /*[TestClass]
     public class UserApiTest
     {
         private UserApiController _controller;
@@ -224,5 +224,5 @@ namespace GDesign2022NFT.Test
         }
 
 
-    }
+    }*/
 }
